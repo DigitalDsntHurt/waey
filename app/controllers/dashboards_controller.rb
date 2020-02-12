@@ -3,6 +3,12 @@ class DashboardsController < ApplicationController
   end
 
   def exercise
+    @exercise_days = Exercise.daily_minutes
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @votes }
+    end
   end
 
   def consumption
