@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Exercises</h1>
+<h1 class="page-title">Exercises</h1>
+<%= render partial: 'exercises/new_form', locals: {exercise: Exercise.new} %>
 
 <table>
   <thead>
@@ -28,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Exercise', new_exercise_path %>
+

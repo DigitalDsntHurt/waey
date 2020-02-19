@@ -1,12 +1,6 @@
 <h1>Dashboards#exercise</h1>
-<p>Find me in app/views/dashboards/exercise.html.erb</p>
+
 <%= Exercise.daily_minutes %>
-
-<div id="plot-container">
-  <svg id="plot"></svg>
-</div>
-
-
 
 
 <br><br><hr><br><br>
@@ -16,9 +10,9 @@
 .bar { fill: steelblue; }
 
 </style>
-<body>
+
 <!-- load the d3.js library -->    	
-<script src="https://d3js.org/d3.v4.min.js"></script>
+
 <script>
 
 // set the dimensions and margins of the graph
@@ -78,4 +72,10 @@ d3.csv("<%= asset_path 'sales.csv' %>", function(error, data) {
 });
 
 </script>
-</body>
+
+
+
+
+<br><br><hr><br><br>
+
+
