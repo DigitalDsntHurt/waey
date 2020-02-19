@@ -1,2 +1,105 @@
 <h1>Dashboards#sleep</h1>
-<p>Find me in app/views/dashboards/sleep.html.erb</p>
+
+
+<h2>#2 -- two column of data -- a date and a value</h2>
+
+<div id="chart2"></div>
+
+<script>
+	var justMins = <%= @exercise_days %>;
+
+	var datesAndMins = <%= @dates_and_minutes %>;
+	var myDataCount = <%= @dates_and_minutes.count %>;
+	var myDataMax = <%= @dates_and_minutes.max %>;
+
+	var height = 600;
+	var width = 1000;
+	var barWidth = width / myDataCount;
+	var barOffset = 1;
+
+	// CREATE BARS
+	
+	// create the html svg element
+	var svg = d3.select("svg");
+
+	// create empty selection of rectablge elem
+	var bars = d3.selectAll("rect");
+
+	var newBars = bars.data(justMins)
+		.enter()
+		.append("rect");
+
+	newBars.attr("x",0)
+		.attr("y",function(d,i){ return i*20 })
+		.attr("width",function(d){ d*3; })
+		.attr("height", 20);
+
+
+	d3.select('#chart2').append(newBars)
+
+
+	// var bars = d3.select("chart2").append("svg")
+	// 	.selectAll("rect")
+	// 		.data(myData)
+	// 		.enter().append("rect")
+	// 			.attr("x", function(d,i){ return x(d[0]); })
+	// 			.attr("y", function(d,i){ return y(d[1]); })
+	// 			.attr("height", function(d,i){ return height - y(d[1]); })
+	// 			.attr("width", function(d,i){ return x.rangeBand(); })
+	// 			.attr("class", "bargraph-bar")
+
+	// var bars = svg.selectAll("rect").remove().data(myData).enter()
+	// 	.append("rect")
+	// 	.attr("x", function(d,i){ return x(d[0]); })
+	// 	.attr("y", function(d,i){ return y(d[1]); })
+	// 	.attr("height", function(d,i){ return height - y(d[1]); })
+	// 	.attr("width", function(d,i){ return x.rangeBand(); })
+	// 	.attr("class", "bargraph-bar");
+
+</script>
+
+<br><hr><br>
+<h2>#1 -- basic one column of data</h2>
+
+<p><%= @exercise_days %></p>
+
+<div id="chart1"></div>
+
+<script>
+	var myData = <%= @exercise_days %>;
+	var myDataCount = <%= @exercise_days.count %>;
+	var myDataMax = <%= @exercise_days.max %>;
+
+	var height = myDataMax;
+	var width = window.innerWidth/1.5;
+	var barWidth = width / myDataCount;
+	var barOffset = 5;
+
+	// Create bars
+	var myChart = d3.select('#chart1').append('svg')
+	 	.attr('width', window.innerWidth)
+	  	.attr('height', window.innerHeight)
+		.selectAll('rect')
+			.data(myData)
+			.enter().append('rect')
+				.style('fill','lightgreen')
+				.attr('width',barWidth)
+				.attr('height',function(d){ return d; })
+				.attr('x', function(d,i){ return i * (barWidth + barOffset) })
+				.attr('y', function(d){ return myDataMax - d; }) 		
+
+	// Create scale
+	var scale = d3.scaleLinear()
+		.domain([1,myDataCount])
+		.range([barOffset,(myDataCount*barWidth + myDataCount*barOffset)-(2*barOffset)]);
+
+	// Add scales to axis
+	var x_axis = d3.axisBottom()
+	   	.scale(scale)
+	   	.ticks(myDataCount);
+
+	d3.select('#chart1').select('svg').append("g")
+	  .attr("class", "axis")
+	  .attr("transform", "translate(0," + (myDataMax +1 ) + ")")
+	  .call(x_axis);
+</script>
