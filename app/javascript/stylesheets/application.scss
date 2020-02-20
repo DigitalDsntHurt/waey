@@ -1,9 +1,70 @@
 @import "~bootstrap/scss/bootstrap";
 
+
 body{
 	padding: 2vh 2vw 2vh 2vw;
+	background-color: #473939;
+	color: #c7ebd1;
 }
+
+
+input{
+	/*background-color: #bf9f9f;	*/
+}
+
+a{
+	color: #c7ebd1;
+}
+
+a:visited{
+	color: #c7ebd1;	
+}
+
 
 .page-title{
 	text-align: center;
+}
+
+.index-table{
+	margin: auto;
+	table-layout:fixed;
+	/*border-collapse:collapse;*/
+	/*width: 90vw;*/
+	th {
+		white-space: nowrap;
+		text-align: center;
+		padding: 0 2vw 0 2vw;
+	}
+	th.left-head{
+		text-align: left;
+	}
+	td{
+		/*white-space: nowrap;*/
+		border: dotted 1px black;
+		padding: 0 1vw 0 1vw;
+	}
+	td.center-text{
+		text-align: center;
+	}
+	td.wrap-text-cell{
+		/*white-space: pre-wrap;*/
+		width: 50vw;
+		word-wrap: break-word;
+	}
+}
+
+.form-partial{
+	margin: 2vh auto 2vh auto;
+	td{
+		vertical-align: bottom;
+	}
+}
+
+.button-cell{
+	text-align: center;
+}
+
+.short-text-button{
+	padding-left: 4vw;
+	padding-right: 4vw;
 }

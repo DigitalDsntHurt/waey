@@ -3,12 +3,12 @@ require 'csv'
 
 puts "#{Exercise.all.count} exercise records in db"
 
-csv = CSV.read('lib/csvs/exercise_11feb2020.csv')[3..-25]
+csv = CSV.read('lib/csvs/exercise.csv').to_a
 csv.each{|row|
   @hsh = {}
   @hsh[:date] = row[0].to_date
-  if row[1] == nil or row[1] == "-"
-    @hsh[:description] = nil
+  if row[1] == nil or row[1] == "-" or row[1].include?("/exercises/")
+    @hsh[:description] = ""
   else
     if row[1].include?("\n")
       if row[1][-1] == "\n" #and row[1][-2] == "\\"

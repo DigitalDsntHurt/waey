@@ -11,32 +11,31 @@
     </div>
   <% end %>
 
-  <table>
-    <tr>
-      <td>
-        <div class="field">
-          <%= form.date_select :date %>
-        </div>
-      </td>
-      <td>
-        <div class="field">
-          <%= form.label :description %><br>
-          <%= form.text_area :description %>
-        </div>
-      </td>
-      <td>
-        <div class="field">
-          <%= form.label :total_minutes %><br>
-          <%= form.number_field :total_minutes %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <div class="actions">
-          <%= form.submit "create", class: "btn btn-info" %>
-        </div>
-      </td>
-    </tr>
-  </table>
+  <div class="table-responsive">
+    <table class="form-partial">
+      <tr>
+        <td>
+          <div class="field">
+            <%= form.text_field :date, data: { behavior: "flatpickr" }, placeholder: "date", class: "form-control" %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= form.text_field :description, placeholder: "description", class: "form-control" %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= form.number_field :total_minutes, placeholder: "total mins", class: "form-control" %>
+          </div>
+        </td>
+        <td class="button-cell">
+          <div class="actions">
+            <%= form.submit "log", class: "btn btn-info btn-md short-text-button" %>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
 <% end %>
