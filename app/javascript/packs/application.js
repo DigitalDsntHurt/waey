@@ -7,7 +7,6 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-//require("bootstrap-datepicker-rails")
 
 import "bootstrap"
 import "../stylesheets/application"
@@ -16,7 +15,7 @@ import flatpickr from "flatpickr"
 require("flatpickr/dist/flatpickr.css")
 
 document.addEventListener("turbolinks:load", () => {
-	flatpickr("data-behavior='flatpickr"), {
+	flatpickr("[data-behavior='flatpickr']"), {
 		dateFormat: "Y-m-d"
 	}
 })
