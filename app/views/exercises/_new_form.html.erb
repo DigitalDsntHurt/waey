@@ -11,11 +11,12 @@
     </div>
   <% end %>
 
-  <table>
+  <table class="form-partial">
     <tr>
       <td>
         <div class="field">
-          <%= form.date_select :date %>
+          <%= form.label :date %><br>
+          <%= form.text_field :date, data: { behavior: "flatpickr" } %>
         </div>
       </td>
       <td>
@@ -32,7 +33,7 @@
       </td>
     </tr>
     <tr>
-      <td colspan="3">
+      <td colspan="3" class="button-cell">
         <div class="actions">
           <%= form.submit "create", class: "btn btn-info" %>
         </div>

@@ -1,9 +1,25 @@
 @import "~bootstrap/scss/bootstrap";
 
+
 body{
 	padding: 2vh 2vw 2vh 2vw;
 }
 
 .page-title{
+	text-align: center;
+}
+
+
+.form-partial{
+	margin: auto;
+	border: solid 1px black;
+
+	td{
+		vertical-align: top;
+		padding: 12px;
+	}
+}
+
+.button-cell{
 	text-align: center;
 }
