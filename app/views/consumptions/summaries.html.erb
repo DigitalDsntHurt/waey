@@ -5,3 +5,59 @@
 <%= render partial: "consumptions/summaries/this_week_summary" %>
 
 <%= render partial: "consumptions/summaries/last_week_summary" %>
+
+<h2 class="section-title">Winning Days Per Week</h2>
+
+<script>
+	d3.select('body').append('div').attr('class','weekly-wins')
+
+	var data = <%= Consumption.weekly_wins %>;
+
+	var svgWidth = 900;
+	var svgHeight = 400;
+
+	var barPadding = 5;
+	var numberOfBars = data.length;
+	var barWidth = (svgWidth - (barPadding * (numberOfBars + 1))) / numberOfBars;
+
+	var svg = d3.select('.weekly-wins')
+		.append('svg')
+			.attr('width', svgWidth)
+			.attr('height', svgHeight)
+			.attr('class','bar-chart')
+			.style('display','block').style('margin','auto');
+
+	var yScale = d3.scaleLinear()
+		.domain([0,d3.max(data)])
+		.range([0,svgHeight-2]);
+
+	var barChart = svg.selectAll('rect')
+		.data(data)
+		.enter()
+			.append('rect')
+			.attr('y', function(d){
+				return svgHeight - yScale(d);
+			})
+			.attr('height', function(d){
+				return yScale(d);
+			})
+			.attr('width', barWidth)
+			.attr('transform', function(d,i){
+				var translate = [(((barWidth + barPadding) * i) + barPadding), 0];
+				return "translate(" + translate + ")";
+			})
+			.style("fill","orange")
+
+	var text = svg.selectAll("text")
+		.data(data)
+		.enter()
+		.append("text")
+		.text(function(d){
+			return d;
+		})
+		.attr('transform', function(d,i){
+			var translate = [(((barWidth + barPadding) * i) + barPadding + 33), svgHeight - 12];
+			return "translate(" + translate + ")";
+		})
+		.style("fill","#FFF").style("font-weight","bold");
+</script>

@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+//require("packs/consumption_summaries.js.erb")
 
 import "bootstrap"
 import "../stylesheets/application"
