@@ -11,11 +11,12 @@ require("channels")
 import "bootstrap"
 import "../stylesheets/application"
 
+
 import flatpickr from "flatpickr"
 require("flatpickr/dist/flatpickr.css")
 
 document.addEventListener("turbolinks:load", () => {
-	flatpickr("[data-behavior='flatpickr']"), {
+	flatpickr("[data-behavior='date-picker']"), {
 		dateFormat: "Y-m-d"
 	}
 })

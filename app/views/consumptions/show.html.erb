@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @consumption.date %>
+</p>
+
+<p>
+  <strong>Desciption:</strong>
+  <%= @consumption.description %>
+</p>
+
+<p>
+  <strong>Feeling score:</strong>
+  <%= @consumption.feeling_score %>
+</p>
+
+<p>
+  <strong>Win:</strong>
+  <%= @consumption.win %>
+</p>
+
+<%= link_to 'Edit', edit_consumption_path(@consumption) %> |
+<%= link_to 'Destroy', @consumption, method: :delete %> |
+<%= link_to 'Back', consumptions_path %>

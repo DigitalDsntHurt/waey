@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-title">Consumption</h1>
+
+<%= render partial: 'consumptions/mini_form', locals: {consumption: Consumption.new} %>
+
+<table class="index-table">
+  <thead>
+    <tr>
+      <th>date</th>
+      <th>dow</th>
+      <th>win?</th>
+      <th>feeling score</th>
+      <th class="left-head">description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @consumptions.each do |consumption| %>
+      <tr>
+        <td><%= consumption.date %></td>
+        <td><%= consumption.date.strftime("%A") %></td>
+        <td class="center-text"><%= consumption.win %></td>
+        <td class="center-text"><%= consumption.feeling_score %></td>
+        <td class="wrap-text-cell"><%= link_to consumption.description, consumption %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,45 @@
+<%= form_with(model: consumption, local: true) do |form| %>
+  <% if consumption.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(consumption.errors.count, "error") %> prohibited this consumption from being saved:</h2>
+
+      <ul>
+        <% consumption.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table class="form-partial">
+  <tr>
+    <td>
+      <div class="form-group">
+        <%= form.text_field :date, data: { behavior: "date-picker" }, placeholder: "date", class: "form-control" %>
+      </div>    
+    </td>
+    <td>
+      <div class="form-group">
+        <%= form.text_field :description, placeholder: "description", class: "form-control" %>
+      </div>      
+    </td>
+    <td>
+      <div class="form-group">
+        <%= form.select :feeling_score, [["feel good",1],["feel neutral", 0],["feel bad",-1]], {}, {class: "form-control"}  %>
+      </div>      
+    </td>
+    <td>
+      <div class="form-group">
+        <%= form.select :win, [["win",true],["loss",false]], {}, {class: "form-control"} %>
+        
+      </div>
+    </td>
+    <td>
+      <div class="actions">
+        <%= form.submit "log", class: "btn btn-info btn-md short-text-button" %>
+      </div>
+    </td>
+  </tr>
+</table>
+  
+<% end %>
