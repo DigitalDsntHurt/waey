@@ -32,24 +32,34 @@ require 'csv'
 # puts "#{Exercise.all.count} exercise records in db"
 
 
-#
-## ##
-## ## ## Seed consumption from csv export from google sheets tracking here: https://docs.google.com/spreadsheets/d/1h4cshbbBafRe5qW2HWs-PD8vUNVzRsejBAv1eYTVqbc/edit#gid=1575872839
-## ##
-##
-puts "#{Consumption.all.count} consumption records in db"
+# #
+# ## ##
+# ## ## ## Seed consumption from csv export from google sheets tracking here: https://docs.google.com/spreadsheets/d/1h4cshbbBafRe5qW2HWs-PD8vUNVzRsejBAv1eYTVqbc/edit#gid=1575872839
+# ## ##
+# ##
+# puts "#{Consumption.all.count} consumption records in db"
 
-csv = CSV.read('lib/csvs/consumption.csv').to_a
-csv[1..-1].each{|row|
-  @hsh = {}
-  @hsh[:date] = row[0].to_date
-  @hsh[:description] = row[2]
-  @hsh[:feeling_score] = row[3].to_i
-  @hsh[:win] = row[4]
+# csv = CSV.read('lib/csvs/consumption.csv').to_a
+# csv[1..-1].each{|row|
+#   @hsh = {}
+#   @hsh[:date] = row[0].to_date
+#   @hsh[:description] = row[2]
+#   @hsh[:feeling_score] = row[3].to_i
+#   @hsh[:win] = row[4]
   
-  Consumption.create(@hsh) 
+#   Consumption.create(@hsh) 
+# }
+
+# puts "#{Consumption.all.count} consumption records in db"
+
+
+##
+## ## clean up blank descriptions in consumption
+##
+
+Consumption.all.each{|consumption|
+  if consumption.description == nil
+    # p  consumption
+    consumption.update(description: "")#.save
+  end
 }
-
-puts "#{Consumption.all.count} consumption records in db"
-
-
