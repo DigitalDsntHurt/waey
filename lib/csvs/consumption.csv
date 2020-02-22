@@ -1,0 +1,173 @@
+date,am/pm,log,feeling score,win?
+2020-01-01,am,,0,TRUE
+2020-01-01,pm,,0,FALSE
+2020-01-02,am,,0,FALSE
+2020-01-02,pm,,0,FALSE
+2020-01-03,am,,0,TRUE
+2020-01-03,pm,,0,FALSE
+2020-01-04,am,,0,TRUE
+2020-01-04,pm,,0,FALSE
+2020-01-05,am,,0,TRUE
+2020-01-05,pm,,0,TRUE
+2020-01-06,am,,0,TRUE
+2020-01-06,pm,,0,TRUE
+2020-01-07,am,,0,TRUE
+2020-01-07,pm,,0,FALSE
+2020-01-08,am,,0,TRUE
+2020-01-08,pm,,0,TRUE
+2020-01-09,am,,0,TRUE
+2020-01-09,pm,,0,FALSE
+2020-01-10,am,,0,TRUE
+2020-01-10,pm,,0,FALSE
+2020-01-11,am,,0,TRUE
+2020-01-11,pm,,0,FALSE
+2020-01-12,am,coffee,0,TRUE
+2020-01-12,pm,"chinese food
+cake, icecream
+thai food, chocolate
+icecream",-1,FALSE
+2020-01-13,am,"coffee
+cream donuts
+bagel creamcheese
+bagel egg bacon avocado",-1,FALSE
+2020-01-13,pm,"fish, broccoli, cauliflower, tahini, pork",1,TRUE
+2020-01-14,am,"coffee
+egg bite w/ bacon, broccoli, asparagus, garlic",0,TRUE
+2020-01-14,pm,"tacos, a pupusa, a beer",0,FALSE
+2020-01-15,am,"1 bite of a morning bun, 1 bite of a breakfast hot dog
+chicken, broccoli
+coffee",0,FALSE
+2020-01-15,pm,"fried rice, brussel sprouts, burger
+fried chicken, pot stickers, grilled chicken",-1,FALSE
+2020-01-16,am,apple,0,TRUE
+2020-01-16,pm,"al pastor burrito
+cambodian food
+diet coke
+tequila",0,FALSE
+2020-01-17,am,"coffee w/ butter
+egg bite",1,TRUE
+2020-01-17,pm,"vodka, soda, lemon
+tequila
+bread, carrot, pepper, hummus, pesto, chorizo, chocolate",0,FALSE
+2020-01-18,am,"coffee
+egg bite",0,TRUE
+2020-01-18,pm,"fried chicken, parfait, pizza",-1,FALSE
+2020-01-19,am,"egg, bacon, vegetables",0,TRUE
+2020-01-19,pm,"chips, guac, salsa, chile, corn bread, ribs, cookies
+fries",-1,FALSE
+2020-01-20,am,"eggbite w/ bacon, broccoli, asparagus, cream, cream cheese
+apple",0,TRUE
+2020-01-20,pm,"falafel, hummous, tahini sauce",0,TRUE
+2020-01-21,am,"coffee, butter
+falafel, hummus",-1,TRUE
+2020-01-21,pm,"apple, almond butter
+chorizo
+falafel, hummous, tahini sauce",-1,TRUE
+2020-01-22,am,"green apple, egg bite",0,TRUE
+2020-01-22,pm,home-cooked mediteranean feast,0,TRUE
+2020-01-23,am,full fast,0,TRUE
+2020-01-23,pm,"falafel, hummus, salmon, stringbeans
+green apple
+cualiflower, tripe, salad",0,TRUE
+2020-01-24,am,full fast,0,TRUE
+2020-01-24,pm,"green apple
+salmon, string beans, beet salad
+tandoori chicken salad
+chocolate",0,TRUE
+2020-01-25,am,"egg, sausage, potato, mixed veg",0,TRUE
+2020-01-25,pm,"green apple
+eggplant, beef, stringbeans
+egg, onion, microgreens
+chocolate",1,TRUE
+2020-01-26,am,full fast,1,TRUE
+2020-01-26,pm,"souvla chicken salad
+string beans, eggplant, pork curry, chicken lettuce cups, fried rice",0,FALSE
+2020-01-27,am,full fast,0,TRUE
+2020-01-27,pm,full fast,0,TRUE
+2020-01-28,am,full fast,0,TRUE
+2020-01-28,pm,full fast,1,TRUE
+2020-01-29,am,full fast,1,TRUE
+2020-01-29,pm,full fast,1,TRUE
+2020-01-30,am,full fast,1,TRUE
+2020-01-30,pm,"green apple
+oysters, tuna, cauliflower, wings",1,TRUE
+2020-01-31,am,"green apple
+chicken salad",1,TRUE
+2020-01-31,pm,"green beans, olives, green apple, cranberries, sausage, corn johnnycakes, spicy pineapple salsa
+vodka, gingerale, hard kombucha
+gluten free cookies, dairy free ice cream",-1,FALSE
+2020-02-01,am,full fast,0,TRUE
+2020-02-01,pm,"philipino breakfast
+tacos, waffles fries
+snacks and junk food
+over pizza",-1,FALSE
+2020-02-02,am,breafast burrito,0,FALSE
+2020-02-02,pm,"bread, salsa, guac, patte, corn cakes, cookies, chips, wings, salad",-1,FALSE
+2020-02-03,am,full fast,1,TRUE
+2020-02-03,pm,"banana
+chinese food -- meat & veg",1,TRUE
+2020-02-04,am,full fast,1,TRUE
+2020-02-04,pm,"green apple
+peanuts, yogurt, ribs
+sardines in tomato sauce
+tacos",-1,TRUE
+2020-02-05,am,full fast,1,TRUE
+2020-02-05,pm,"banana
+green apple
+sardines in olive oil
+home-made fajitas",1,TRUE
+2020-02-06,am,full fast,,TRUE
+2020-02-06,pm,"green apple
+burrito
+Mr Pollo price fixe menu
+burrito",0,FALSE
+2020-02-07,am,"donut
+bacon and egg sandwich",-1,FALSE
+2020-02-07,pm,"pita, hummus, sauces, olives, squid, shrimp
+pizza, meatballs",-1,FALSE
+2020-02-08,am,full fast,0,TRUE
+2020-02-08,pm,"protein puck, green apple, meatball
+carcuterie, olives
+chicken, cauliflower, veg
+coconut pudding",1,TRUE
+2020-02-09,am,full fast,1,TRUE
+2020-02-09,pm,"chicken, cauliflower, veg",1,TRUE
+2020-02-10,am,green apple,1,TRUE
+2020-02-10,pm,"crab legs
+chicken, slaw
+korean takeout",0,FALSE
+2020-02-11,am,green apple,1,TRUE
+2020-02-11,pm,miso salad,1,TRUE
+2020-02-12,am,green apple,1,TRUE
+2020-02-12,pm,"green apple
+chicken, slaw",1,TRUE
+2020-02-13,am,"chicken, slaw
+green apple",0,TRUE
+2020-02-13,pm,"turkey sandwich
+sushi
+baked goods
+nori
+chinese food",-1,FALSE
+2020-02-14,am,green apple,0,TRUE
+2020-02-14,pm,thai delivery,-1,FALSE
+2020-02-15,am,"egg, fried rice, chicken wings",0,FALSE
+2020-02-15,pm,"chips
+korean bbq delivery",-1,FALSE
+2020-02-16,am,"fried chicken and wafffles, biscuit, sausage, hashbrowns",-1,FALSE
+2020-02-16,pm,"bread, pesto, peppers
+home-made gluten free pizza
+gluten free cookies
+dairy free ice cream",-1,FALSE
+2020-02-17,am,full fast,0,TRUE
+2020-02-17,pm,chicken stew,0,TRUE
+2020-02-18,am,full fast,0,TRUE
+2020-02-18,pm,tacos,-1,TRUE
+2020-02-19,am,full fast,1,TRUE
+2020-02-19,pm,"green apple, mixed nuts
+green apple, mixed nuts",1,TRUE
+2020-02-20,am,"bacon, nuts, banana",1,TRUE
+2020-02-20,pm,"egg, nuts
+nuts
+trout, cauliflower",1,TRUE
+2020-02-21,am,full fast,1,TRUE
+2020-02-21,pm,"brussel sprouts, apple, beet salad, carcuterie, pickled vegetables, duck confit, sausage, onion",0,FALSE

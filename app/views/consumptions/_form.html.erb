@@ -1,10 +1,10 @@
-<%= form_with(model: exercise, local: true) do |form| %>
-  <% if exercise.errors.any? %>
+<%= form_with(model: consumption, local: true) do |form| %>
+  <% if consumption.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(exercise.errors.count, "error") %> prohibited this exercise from being saved:</h2>
+      <h2><%= pluralize(consumption.errors.count, "error") %> prohibited this consumption from being saved:</h2>
 
       <ul>
-        <% exercise.errors.full_messages.each do |message| %>
+        <% consumption.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -13,6 +13,7 @@
 
   <div class="field">
     <%= form.label :date %>
+    
     <%= form.text_field :date, data: { behavior: "date-picker" } %>
   </div>
 
@@ -22,8 +23,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :total_minutes %>
-    <%= form.number_field :total_minutes %>
+    <%= form.label :feeling_score %>
+    <%= form.number_field :feeling_score %>
+  </div>
+
+  <div class="field">
+    <%= form.label :win %>
+    <%= form.check_box :win %>
   </div>
 
   <div class="actions">

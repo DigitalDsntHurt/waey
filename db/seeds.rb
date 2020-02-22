@@ -1,28 +1,76 @@
 require 'csv'
 
+# ##
+# ## ##
+# ## ## ## Seed exercise from csv export from google sheets tracking here: https://docs.google.com/spreadsheets/d/1h4cshbbBafRe5qW2HWs-PD8vUNVzRsejBAv1eYTVqbc/edit#gid=304457514
+# ## ##
+# ##
+# puts "#{Exercise.all.count} exercise records in db"
 
-puts "#{Exercise.all.count} exercise records in db"
+# csv = CSV.read('lib/csvs/exercise.csv').to_a
+# csv.each{|row|
+#   @hsh = {}
+#   @hsh[:date] = row[0].to_date
+#   if row[1] == nil or row[1] == "-" or row[1].include?("/exercises/")
+#     @hsh[:description] = ""
+#   else
+#     if row[1].include?("\n")
+#       if row[1][-1] == "\n" #and row[1][-2] == "\\"
+#         @hsh[:description] = row[1][0..-2].gsub("\n",", ")
+#       else
+#         @hsh[:description] = row[1].gsub("\n",", ")
+#       end
+      
+#     else
+#       @hsh[:description] = row[1]
+#     end
+#   end
+#   @hsh[:total_minutes] = row[2].to_i
+#   Exercise.create(@hsh) 
+# }
 
-csv = CSV.read('lib/csvs/exercise.csv').to_a
-csv.each{|row|
+# puts "#{Exercise.all.count} exercise records in db"
+
+
+#
+## ##
+## ## ## Seed consumption from csv export from google sheets tracking here: https://docs.google.com/spreadsheets/d/1h4cshbbBafRe5qW2HWs-PD8vUNVzRsejBAv1eYTVqbc/edit#gid=1575872839
+## ##
+##
+puts "#{Consumption.all.count} consumption records in db"
+
+csv = CSV.read('lib/csvs/consumption.csv').to_a
+csv[1..-1].each{|row|
+
+  ## needed rows
+  # date
+  # description
+  # feeling score
+  # win
+
+
   @hsh = {}
   @hsh[:date] = row[0].to_date
-  if row[1] == nil or row[1] == "-" or row[1].include?("/exercises/")
-    @hsh[:description] = ""
-  else
-    if row[1].include?("\n")
-      if row[1][-1] == "\n" #and row[1][-2] == "\\"
-        @hsh[:description] = row[1][0..-2].gsub("\n",", ")
-      else
-        @hsh[:description] = row[1].gsub("\n",", ")
-      end
+  # if row[1] == nil or row[1] == "-" or row[1].include?("/exercises/")
+  @hsh[:description] = row[2]
+  @hsh[:feeling_score] = row[3].to_i
+  @hsh[:win] = row[4]
+  # else
+  #   if row[1].include?("\n")
+  #     if row[1][-1] == "\n" #and row[1][-2] == "\\"
+  #       @hsh[:description] = row[1][0..-2].gsub("\n",", ")
+  #     else
+  #       @hsh[:description] = row[1].gsub("\n",", ")
+  #     end
       
-    else
-      @hsh[:description] = row[1]
-    end
-  end
-  @hsh[:total_minutes] = row[2].to_i
-  Exercise.create(@hsh) 
+  #   else
+  #     @hsh[:description] = row[1]
+  #   end
+  # end
+  
+  Consumption.create(@hsh) 
 }
 
-puts "#{Exercise.all.count} exercise records in db"
+puts "#{Consumption.all.count} consumption records in db"
+
+
