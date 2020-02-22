@@ -1,0 +1,32 @@
+<h2 class="section-title">Tailing 7 Days</h2>
+
+<% data = Consumption.win_loss_days_and_percents(Consumption.trailing_seven_days) %>
+<% avg_feeling_score = Consumption.avg_feeling_score(Consumption.trailing_seven_days) %>
+
+<h6 class="section-sub-title"><%= data[:start_date].strftime("%a %d %b") %> to <%= data[:end_date].strftime("%a %d %b") %></h6>
+
+<table class="index-table">
+	<thead>
+		<th>
+			# winning days
+		</th>
+		<th>
+			% winning days
+		</th>
+		<th>
+			avg feeling score
+		</th>
+	</thead>
+	<tr>
+		<td class="center-text">
+			<%= data[:wins]	%> of <%= data[:days] %>
+		</td>
+		<td class="center-text">
+			<%= data[:percent_win] %>
+		</td>
+		<td class="center-text">
+			<%= avg_feeling_score %>
+		</td>
+	</tr>
+</table>
+
