@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @daily.date %>
+</p>
+
+<p>
+  <strong>Habit:</strong>
+  <%= @daily.habit %>
+</p>
+
+<p>
+  <strong>Done:</strong>
+  <%= @daily.done %>
+</p>
+
+<%= link_to 'Edit', edit_daily_path(@daily) %> |
+<%= link_to 'Back', dailies_path %>

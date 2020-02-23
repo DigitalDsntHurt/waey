@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  
+  get 'dailies/alcohol_index' => 'dailies#alcohol_index'
+  get 'dailies/alcohol_summary' => 'dailies#alcohol_summary'
+  resources :dailies
+  
+
   get 'consumptions/summaries' => 'consumptions#summaries'
   resources :consumptions
   

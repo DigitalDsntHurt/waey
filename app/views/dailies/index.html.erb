@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-title">Dailies</h1>
+
+<%= render partial: 'dailies/mini_form', locals: {daily: Daily.new} %>
+
+<table class="index-table">
+  <thead>
+    <tr>
+      <th>date</th>
+      <th>dow</th>
+      <th>habit</th>
+      <th>done</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dailies.each do |daily| %>
+      <tr>
+        <td class="center-text"><%= daily.date %></td>
+        <td class="center-text"><%= daily.date.strftime("%a") %></td>
+        <td class="center-text"><%= link_to daily.habit, daily %></td>
+        <td class="center-text">
+          <% if daily.done %>
+            <%= fa_icon "check-square", size: '2x', style: 'color: green' %>
+          <% else %>
+            <%= fa_icon "square", size: '2x', style: 'color: red' %>
+          <% end %>
+        </td>
+        
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>

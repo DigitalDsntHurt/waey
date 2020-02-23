@@ -1,0 +1,41 @@
+<%= form_with(model: daily, local: true) do |form| %>
+  <% if daily.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(daily.errors.count, "error") %> prohibited this daily from being saved:</h2>
+
+      <ul>
+        <% daily.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="table-responsive">
+	<table class="form-partial">
+		<tr>
+			<td class="text-field-width">
+			  	<div class="form-group">
+				    <%= form.text_field :date, data: { behavior: "date-picker" }, placeholder: "date", class: "form-control" %>
+			  	</div>				
+			</td>
+			<td class="text-field-width">
+				<div class="form-group">
+				    <%= form.select :habit, Habits.daily.select{|habit| habit == "no alcohol" }, {}, {class: "form-control"} %>
+				 </div>				
+			</td>
+			<td>
+				<div class="form-group">
+					<%= form.select :done, [["done",true],["not done",false]], {}, {class: "form-control"} %>
+				</div>
+			</td>
+			<td class="button-cell">
+				<div class="actions">
+			    	<%= form.submit "log", class: "btn btn-info btn-md short-text-button" %>
+			  	</div>				
+			</td>
+		</tr>
+	</table>
+</div>
+
+<% end %>	
