@@ -53,13 +53,13 @@ require 'csv'
 # puts "#{Consumption.all.count} consumption records in db"
 
 
-##
-## ## clean up blank descriptions in consumption
-##
+# ##
+# ## ## clean up blank descriptions in consumption
+# ##
 
-Consumption.all.each{|consumption|
-  if consumption.description == nil
-    # p  consumption
-    consumption.update(description: "")#.save
-  end
-}
+# Consumption.all.each{|consumption|
+#   if consumption.description == nil
+#     # p  consumption
+#     consumption.update(description: "")#.save
+#   end
+# }
