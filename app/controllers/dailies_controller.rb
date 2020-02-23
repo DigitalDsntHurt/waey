@@ -11,6 +11,10 @@ class DailiesController < ApplicationController
     @dailies = Daily.where(habit: "no alcohol").sort_by{|daily| daily.date }.reverse
   end
 
+  def alcohol_summary
+    
+  end
+
   # GET /dailies/1
   # GET /dailies/1.json
   def show
