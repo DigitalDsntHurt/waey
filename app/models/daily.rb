@@ -1,7 +1,7 @@
 class Daily < ApplicationRecord
 
-validates :date, uniqueness: { scope: :habit,
-    message: "can only have one of each daily habit type" }
+validates :date, uniqueness: { scope: :habit, message: "can only have one of each daily habit type" }
+validates :date, :habit, :done, presence: true
 
   ##
   ## ##
