@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   
   get 'dailies/alcohol_index' => 'dailies#alcohol_index'
   get 'dailies/alcohol_summary' => 'dailies#alcohol_summary'
+  get 'dailies/mark_done' => 'dailies#mark_done'
+  get 'dailies/mark_undone' => 'dailies#mark_undone'
   resources :dailies
   
 

@@ -65,41 +65,41 @@ require 'csv'
 # }
 
 
-#
-## ##
-## ## ## Seed alcohol from csv export from google sheets tracking here: https://docs.google.com/spreadsheets/d/1h4cshbbBafRe5qW2HWs-PD8vUNVzRsejBAv1eYTVqbc/edit#gid=1575872839
-## ##
-##
-puts "#{Daily.where(habit: "no alcohol").count} alcohol records in daily habits model"
+# #
+# ## ##
+# ## ## ## Seed alcohol from csv export from google sheets tracking here: https://docs.google.com/spreadsheets/d/1h4cshbbBafRe5qW2HWs-PD8vUNVzRsejBAv1eYTVqbc/edit#gid=1575872839
+# ## ##
+# ##
+# puts "#{Daily.where(habit: "no alcohol").count} alcohol records in daily habits model"
 
-csv = CSV.read('lib/csvs/alcohol.csv').to_a
-@tmp = []
-csv[1..-1].each{|row|
-  @hsh = {}
-  @hsh[:date] = row[0].to_date
-  @hsh[:habit] = "no alcohol"
-  @hsh[:done] = row[1] 
+# csv = CSV.read('lib/csvs/alcohol.csv').to_a
+# @tmp = []
+# csv[1..-1].each{|row|
+#   @hsh = {}
+#   @hsh[:date] = row[0].to_date
+#   @hsh[:habit] = "no alcohol"
+#   @hsh[:done] = row[1] 
 
-  @tmp << @hsh
-}
+#   @tmp << @hsh
+# }
 
-@dates = []
-@tmp.each{|hsh|
-  @dates << hsh[:date]
-}
+# @dates = []
+# @tmp.each{|hsh|
+#   @dates << hsh[:date]
+# }
 
 
-@dates.uniq.each{|date|
-  @daily_true_false = @tmp.select{|hsh| hsh[:date] == date }.map{|hsh| hsh[:done] }
-  if @daily_true_false.include?("FALSE")
-    @hsh = {date: date, habit: "no alcohol", done: false }
-    p @hsh
-    Daily.create(@hsh)
-  else
-    @hsh = {date: date, habit: "no alcohol", done: true }
-    p @hsh
-    Daily.create(@hsh)
-  end
-}
+# @dates.uniq.each{|date|
+#   @daily_true_false = @tmp.select{|hsh| hsh[:date] == date }.map{|hsh| hsh[:done] }
+#   if @daily_true_false.include?("FALSE")
+#     @hsh = {date: date, habit: "no alcohol", done: false }
+#     p @hsh
+#     Daily.create(@hsh)
+#   else
+#     @hsh = {date: date, habit: "no alcohol", done: true }
+#     p @hsh
+#     Daily.create(@hsh)
+#   end
+# }
 
-puts "#{Daily.where(habit: "no alcohol").count} alcohol records in daily habits model"
+# puts "#{Daily.where(habit: "no alcohol").count} alcohol records in daily habits model"

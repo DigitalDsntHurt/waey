@@ -4,6 +4,108 @@
 
 <div class="dash-section">
 	<h3 class="section-title">Daily Habits</h3>
+	<table class="mini-habits-table">
+		<thead>
+			<th>am brush</th>
+			<th>stretch</th>
+			<th>journal</th>
+			<th>meditate</th>
+			<th>visualize success</th>
+			<th>shower</th>
+			<th>pm brush</th>
+			<th>no alcohol</th>
+		</thead>
+		<tr>
+			<td>				
+				<% if @todays_ambrush.done == true %>
+					<%= link_to dailies_mark_undone_path(daily_id: @todays_ambrush.id), class: "icon-link" do %>
+						<%= fa_icon "check-square", size: '2x', style: 'color: green' %>
+					<% end %>
+				<% else %>
+					<%= link_to dailies_mark_done_path(daily_id: @todays_ambrush.id), class: "icon-link" do %>
+						<%= fa_icon "square", size: '2x', style: 'color: red' %>
+					<% end %>
+				<% end %>
+			</td>
+			<td>				
+				<% if @todays_stretch.done == true %>
+					<%= link_to dailies_mark_undone_path(daily_id: @todays_stretch.id), class: "icon-link" do %>
+						<%= fa_icon "check-square", size: '2x', style: 'color: green' %>
+					<% end %>
+				<% else %>
+					<%= link_to dailies_mark_done_path(daily_id: @todays_stretch.id), class: "icon-link" do %>
+						<%= fa_icon "square", size: '2x', style: 'color: red' %>
+					<% end %>
+				<% end %>
+			</td>
+			<td>				
+				<% if @todays_journal.done == true %>
+					<%= link_to dailies_mark_undone_path(daily_id: @todays_journal.id), class: "icon-link" do %>
+						<%= fa_icon "check-square", size: '2x', style: 'color: green' %>
+					<% end %>
+				<% else %>
+					<%= link_to dailies_mark_done_path(daily_id: @todays_journal.id), class: "icon-link" do %>
+						<%= fa_icon "square", size: '2x', style: 'color: red' %>
+					<% end %>
+				<% end %>
+			</td>
+			<td>				
+				<% if @todays_meditation.done == true %>
+					<%= link_to dailies_mark_undone_path(daily_id: @todays_meditation.id), class: "icon-link" do %>
+						<%= fa_icon "check-square", size: '2x', style: 'color: green' %>
+					<% end %>
+				<% else %>
+					<%= link_to dailies_mark_done_path(daily_id: @todays_meditation.id), class: "icon-link" do %>
+						<%= fa_icon "square", size: '2x', style: 'color: red' %>
+					<% end %>
+				<% end %>
+			</td>
+			<td>				
+				<% if @todays_visualization.done == true %>
+					<%= link_to dailies_mark_undone_path(daily_id: @todays_visualization.id), class: "icon-link" do %>
+						<%= fa_icon "check-square", size: '2x', style: 'color: green' %>
+					<% end %>
+				<% else %>
+					<%= link_to dailies_mark_done_path(daily_id: @todays_visualization.id), class: "icon-link" do %>
+						<%= fa_icon "square", size: '2x', style: 'color: red' %>
+					<% end %>
+				<% end %>
+			</td>
+			<td>				
+				<% if @todays_shower.done == true %>
+					<%= link_to dailies_mark_undone_path(daily_id: @todays_shower.id), class: "icon-link" do %>
+						<%= fa_icon "check-square", size: '2x', style: 'color: green' %>
+					<% end %>
+				<% else %>
+					<%= link_to dailies_mark_done_path(daily_id: @todays_shower.id), class: "icon-link" do %>
+						<%= fa_icon "square", size: '2x', style: 'color: red' %>
+					<% end %>
+				<% end %>
+			</td>
+			<td>				
+				<% if @todays_pmbrush.done == true %>
+					<%= link_to dailies_mark_undone_path(daily_id: @todays_pmbrush.id), class: "icon-link" do %>
+						<%= fa_icon "check-square", size: '2x', style: 'color: green' %>
+					<% end %>
+				<% else %>
+					<%= link_to dailies_mark_done_path(daily_id: @todays_pmbrush.id), class: "icon-link" do %>
+						<%= fa_icon "square", size: '2x', style: 'color: red' %>
+					<% end %>
+				<% end %>
+			</td>
+			<td>				
+				<% if @todays_alcohol.done == true %>
+					<%= link_to dailies_mark_undone_path(daily_id: @todays_alcohol.id), class: "icon-link" do %>
+						<%= fa_icon "check-square", size: '2x', style: 'color: green' %>
+					<% end %>
+				<% else %>
+					<%= link_to dailies_mark_done_path(daily_id: @todays_alcohol.id), class: "icon-link" do %>
+						<%= fa_icon "square", size: '2x', style: 'color: red' %>
+					<% end %>
+				<% end %>
+			</td>
+		</tr>
+	</table>
 </div>
 
 <div class="dash-section">
@@ -12,7 +114,7 @@
 		<% if Consumption.todays_consumption[:total_count] == 0 %>
 			<h6>nothing consumed today</h6>
 		<% else %>
-			<%= Consumption.todays_consumption[:wins] %> wins of <%= Consumption.todays_consumption[:total_count] %> total consumptions ( <%= ((Consumption.todays_consumption[:wins] / Consumption.todays_consumption[:total_count]) / 100.0).round(2) %>% ) wins<%= Consumption.todays_consumption[:wins] %> wins of <%= Consumption.todays_consumption[:total_count] %> total consumptions ( <%= ((Consumption.todays_consumption[:wins] / Consumption.todays_consumption[:total_count]) / 100.0).round(2) %>% ) wins
+			<%= Consumption.todays_consumption[:wins] %> wins of <%= Consumption.todays_consumption[:total_count] %> total consumptions ( <%= ((Consumption.todays_consumption[:wins] / Consumption.todays_consumption[:total_count]) / 100.0).round(2) %>% )
 		<% end %>
 	</div>
 	<%= render partial: 'consumptions/mini_form', locals: {consumption: Consumption.new} %>	

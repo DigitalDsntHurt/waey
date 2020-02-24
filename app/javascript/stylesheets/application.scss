@@ -74,6 +74,22 @@ a:visited{
 	}
 }
 
+.mini-habits-table{
+	margin: 2vh auto 2vh auto;
+	thead{
+		border-bottom: solid 1px black;
+	}
+	th{
+		padding: 0 0.75vw 0 0.75vw;
+	}
+	td{
+		vertical-align: bottom;
+		text-align: center;
+		padding: 0.75vh 0.75vw 0 0.75vw;
+	}
+}	
+
+
 .button-cell{
 	text-align: center;
 }

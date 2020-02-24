@@ -42,6 +42,15 @@ class DashboardsController < ApplicationController
     @today_exercise_mins_incomplete = @daily_exercise_mins_goal - @today_exercise_mins_complete
     @percent_complete = (@today_exercise_mins_complete / 60.0).round(2) * 100
     @percent_incomplete = 100 - @percent_complete
-    #@exercise_payload = {mins_bar_val: @exercise_mins_today[0], mins_to_go_bar_val: (@exercise_mins_today[1] - @exercise_mins_today[0]), mins_percent_val: (@exercise_mins_today[0]/@exercise_mins_today[1]*100.0).round, mins_percent_to_go_bar_val: (100-(@exercise_mins_today[0]/@exercise_mins_today[1]*100.0).round) }
+
+
+    @todays_ambrush = Daily.where(date: Date.today).where(habit: "am brush")[0]
+    @todays_pmbrush = Daily.where(date: Date.today).where(habit: "pm brush")[0]
+    @todays_shower = Daily.where(date: Date.today).where(habit: "shower")[0]
+    @todays_alcohol = Daily.where(date: Date.today).where(habit: "no alcohol")[0]
+    @todays_meditation = Daily.where(date: Date.today).where(habit: "meditate")[0]
+    @todays_journal = Daily.where(date: Date.today).where(habit: "journal")[0]
+    @todays_visualization = Daily.where(date: Date.today).where(habit: "visualize success")[0]
+    @todays_stretch = Daily.where(date: Date.today).where(habit: "stretch")[0]
   end
 end

@@ -69,6 +69,16 @@ class DailiesController < ApplicationController
     end
   end
 
+  def mark_done
+    Daily.find(params[:daily_id]).update(done: true)
+    redirect_back fallback_location: :dailies
+  end
+
+  def mark_undone
+    Daily.find(params[:daily_id]).update(done: false)
+    redirect_back fallback_location: :dailies
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_daily

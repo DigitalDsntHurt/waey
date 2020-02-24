@@ -22,9 +22,13 @@
         <td class="center-text"><%= link_to daily.habit, daily %></td>
         <td class="center-text">
           <% if daily.done %>
-            <%= fa_icon "check-square", size: '2x', style: 'color: green' %>
+            <%= link_to dailies_mark_undone_path(daily_id: daily.id), class: "icon-link" do %>
+              <%= fa_icon "check-square", size: '2x', style: 'color: green' %>
+            <% end %>
           <% else %>
-            <%= fa_icon "square", size: '2x', style: 'color: red' %>
+            <%= link_to dailies_mark_done_path(daily_id: daily.id), class: "icon-link" do %>
+              <%= fa_icon "square", size: '2x', style: 'color: red' %>
+            <% end %>
           <% end %>
         </td>
         
