@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   get 'dashboards/consumption'
   get 'dashboards/daily_habits'
   get 'dashboards/sleep'
+  get 'dashboards/today'
 
 
-  root 'exercises#index'
+  root 'dashboards#today'
 end
