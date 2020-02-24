@@ -114,7 +114,7 @@
 		<% if Consumption.todays_consumption[:total_count] == 0 %>
 			<h6>nothing consumed today</h6>
 		<% else %>
-			<%= Consumption.todays_consumption[:wins] %> wins of <%= Consumption.todays_consumption[:total_count] %> total consumptions ( <%= ((Consumption.todays_consumption[:wins] / Consumption.todays_consumption[:total_count]) / 100.0).round(2) %>% )
+			<%= Consumption.todays_consumption[:wins] %> wins of <%= Consumption.todays_consumption[:total_count] %> total consumptions ( <%= ((Consumption.todays_consumption[:wins] / Consumption.todays_consumption[:total_count]) * 100.0).round(2) %>% )
 		<% end %>
 	</div>
 	<%= render partial: 'consumptions/mini_form', locals: {consumption: Consumption.new} %>	
