@@ -1,5 +1,48 @@
 require 'csv'
 
+
+
+
+
+
+
+
+#################################################################################################################################################################################
+#################################################################################################################################################################################
+#################################################################################################################################################################################
+#################################################################################################################################################################################
+#################################################################################################################################################################################
+#################################################################################################################################################################################
+#################################################################################################################################################################################
+#################################################################################################################################################################################
+#################################################################################################################################################################################
+#################################################################################################################################################################################
+#################################################################################################################################################################################
+#################################################################################################################################################################################
+#################################################################################################################################################################################
+#################################################################################################################################################################################
+#################################################################################################################################################################################
+#################################################################################################################################################################################
+#################################################################################################################################################################################
+#################################################################################################################################################################################
+#################################################################################################################################################################################
+
+##
+## ##
+## ## #
+## ##
+##
+## ##
+## ## ##
+## ## ## ## ## > BEGIN ~ daily habits seeding from google sheets csv exports
+## ## ##
+## ##
+##
+## ##
+## ## #
+## ##
+##
+
 # ##
 # ## ##
 # ## ## ## Seed exercise from csv export from google sheets tracking here: https://docs.google.com/spreadsheets/d/1h4cshbbBafRe5qW2HWs-PD8vUNVzRsejBAv1eYTVqbc/edit#gid=304457514
@@ -19,8 +62,7 @@ require 'csv'
 #         @hsh[:description] = row[1][0..-2].gsub("\n",", ")
 #       else
 #         @hsh[:description] = row[1].gsub("\n",", ")
-#       end
-      
+#       end      
 #     else
 #       @hsh[:description] = row[1]
 #     end
@@ -30,7 +72,6 @@ require 'csv'
 # }
 
 # puts "#{Exercise.all.count} exercise records in db"
-
 
 # #
 # ## ##
@@ -52,7 +93,6 @@ require 'csv'
 
 # puts "#{Consumption.all.count} consumption records in db"
 
-
 # ##
 # ## ## clean up blank descriptions in consumption
 # ##
@@ -63,7 +103,6 @@ require 'csv'
 #     consumption.update(description: "")#.save
 #   end
 # }
-
 
 # #
 # ## ##
@@ -88,7 +127,6 @@ require 'csv'
 #   @dates << hsh[:date]
 # }
 
-
 # @dates.uniq.each{|date|
 #   @daily_true_false = @tmp.select{|hsh| hsh[:date] == date }.map{|hsh| hsh[:done] }
 #   if @daily_true_false.include?("FALSE")
@@ -104,175 +142,151 @@ require 'csv'
 
 # puts "#{Daily.where(habit: "no alcohol").count} alcohol records in daily habits model"
 
+# #
+# ## ##
+# ## ## ## Seed am brush from csv export from google sheets tracking 
+# ## ##
+# ##
+# puts "#{Daily.all.where(habit: "am brush").count} am brush records in daily habits model"
 
+# csv = CSV.read('lib/csvs/ambrush.csv').to_a
+# csv[1..-1].each{|row|
+#   @hsh = {}
+#   @hsh[:date] = row[0].to_date
+#   @hsh[:habit] = "am brush"
+#   @hsh[:done] = row[1]
+  
+#   Daily.create(@hsh) 
+# }
 
+# puts "#{Daily.all.where(habit: "am brush").count} am brush records in daily habits model"
 
+# #
+# ## ##
+# ## ## ## Seed pm brush from csv export from google sheets tracking 
+# ## ##
+# ##
+# puts "#{Daily.all.where(habit: "pm brush").count} pm brush records in daily habits model"
 
+# csv = CSV.read('lib/csvs/pmbrush.csv').to_a
+# csv[1..-1].each{|row|
+#   @hsh = {}
+#   @hsh[:date] = row[0].to_date
+#   @hsh[:habit] = "pm brush"
+#   @hsh[:done] = row[1]
+  
+#   Daily.create(@hsh) 
+# }
 
+# puts "#{Daily.all.where(habit: "pm brush").count} pm brush records in daily habits model"
 
+# #
+# ## ##
+# ## ## ## Seed showers from csv export from google sheets tracking 
+# ## ##
+# ##
+# puts "#{Daily.all.where(habit: "shower").count} shower records in daily habits model"
 
+# csv = CSV.read('lib/csvs/shower.csv').to_a
+# csv[1..-1].each{|row|
+#   @hsh = {}
+#   @hsh[:date] = row[0].to_date
+#   @hsh[:habit] = "shower"
+#   @hsh[:done] = row[1]
+  
+#   Daily.create(@hsh) 
+# }
 
+# puts "#{Daily.all.where(habit: "shower").count} shower records in daily habits model"
 
+# #
+# ## ##
+# ## ## ## Seed visualize from csv export from google sheets tracking 
+# ## ##
+# ##
+# puts "#{Daily.all.where(habit: "visualize success").count} visualization records in daily habits model"
 
+# csv = CSV.read('lib/csvs/visualize.csv').to_a
+# csv[1..-1].each{|row|
+#   @hsh = {}
+#   @hsh[:date] = row[0].to_date
+#   @hsh[:habit] = "visualize success"
+#   @hsh[:done] = row[1]
+  
+#   Daily.create(@hsh) 
+# }
 
+# puts "#{Daily.all.where(habit: "visualize success").count} visualization records in daily habits model"
 
+# #
+# ## ##
+# ## ## ## Seed meditation from csv export from google sheets tracking 
+# ## ##
+# ##
+# puts "#{Daily.all.where(habit: "meditate").count} meditation records in daily habits model"
 
+# csv = CSV.read('lib/csvs/meditate.csv').to_a
+# csv[1..-1].each{|row|
+#   @hsh = {}
+#   @hsh[:date] = row[0].to_date
+#   @hsh[:habit] = "meditate"
+#   @hsh[:done] = row[1]
+  
+#   Daily.create(@hsh) 
+# }
 
+# puts "#{Daily.all.where(habit: "meditate").count} meditation records in daily habits model"
 
-#
+# #
+# ## ##
+# ## ## ## Seed journal from csv export from google sheets tracking 
+# ## ##
+# ##
+# puts "#{Daily.all.where(habit: "journal").count} journal records in daily habits model"
+
+# csv = CSV.read('lib/csvs/journal.csv').to_a
+# csv[1..-1].each{|row|
+#   @hsh = {}
+#   @hsh[:date] = row[0].to_date
+#   @hsh[:habit] = "journal"
+#   @hsh[:done] = row[1]
+  
+#   Daily.create(@hsh) 
+# }
+
+# puts "#{Daily.all.where(habit: "journal").count} journal records in daily habits model"
+
+# #
+# ## ##
+# ## ## ## Seed stretch from csv export from google sheets tracking 
+# ## ##
+# ##
+# puts "#{Daily.all.where(habit: "stretch").count} stretch records in daily habits model"
+
+# csv = CSV.read('lib/csvs/stretch.csv').to_a
+# csv[1..-1].each{|row|
+#   @hsh = {}
+#   @hsh[:date] = row[0].to_date
+#   @hsh[:habit] = "stretch"
+#   @hsh[:done] = row[1]
+  
+#   Daily.create(@hsh) 
+# }
+
+# puts "#{Daily.all.where(habit: "stretch").count} stretch records in daily habits model"
+
+##
 ## ##
-## ## ## Seed am brush from csv export from google sheets tracking 
+## ## #
 ## ##
 ##
-puts "#{Daily.all.where(habit: "am brush").count} am brush records in daily habits model"
-
-csv = CSV.read('lib/csvs/ambrush.csv').to_a
-csv[1..-1].each{|row|
-  @hsh = {}
-  @hsh[:date] = row[0].to_date
-  @hsh[:habit] = "am brush"
-  @hsh[:done] = row[1]
-  
-  Daily.create(@hsh) 
-}
-
-puts "#{Daily.all.where(habit: "am brush").count} am brush records in daily habits model"
-
-
-#
 ## ##
-## ## ## Seed pm brush from csv export from google sheets tracking 
+## ## ##
+## ## ## ## ## > END ~ daily habits seeding from google sheets csv exports
+## ## ##
 ## ##
 ##
-puts "#{Daily.all.where(habit: "pm brush").count} pm brush records in daily habits model"
-
-csv = CSV.read('lib/csvs/pmbrush.csv').to_a
-csv[1..-1].each{|row|
-  @hsh = {}
-  @hsh[:date] = row[0].to_date
-  @hsh[:habit] = "pm brush"
-  @hsh[:done] = row[1]
-  
-  Daily.create(@hsh) 
-}
-
-puts "#{Daily.all.where(habit: "pm brush").count} pm brush records in daily habits model"
-
-
-
-#
 ## ##
-## ## ## Seed showers from csv export from google sheets tracking 
+## ## #
 ## ##
 ##
-puts "#{Daily.all.where(habit: "shower").count} shower records in daily habits model"
-
-csv = CSV.read('lib/csvs/shower.csv').to_a
-csv[1..-1].each{|row|
-  @hsh = {}
-  @hsh[:date] = row[0].to_date
-  @hsh[:habit] = "shower"
-  @hsh[:done] = row[1]
-  
-  Daily.create(@hsh) 
-}
-
-puts "#{Daily.all.where(habit: "shower").count} shower records in daily habits model"
-
-
-
-#
-## ##
-## ## ## Seed visualize from csv export from google sheets tracking 
-## ##
-##
-puts "#{Daily.all.where(habit: "visualize success").count} visualization records in daily habits model"
-
-csv = CSV.read('lib/csvs/visualize.csv').to_a
-csv[1..-1].each{|row|
-  @hsh = {}
-  @hsh[:date] = row[0].to_date
-  @hsh[:habit] = "visualize success"
-  @hsh[:done] = row[1]
-  
-  Daily.create(@hsh) 
-}
-
-puts "#{Daily.all.where(habit: "visualize success").count} visualization records in daily habits model"
-
-
-#
-## ##
-## ## ## Seed meditation from csv export from google sheets tracking 
-## ##
-##
-puts "#{Daily.all.where(habit: "meditate").count} meditation records in daily habits model"
-
-csv = CSV.read('lib/csvs/meditate.csv').to_a
-csv[1..-1].each{|row|
-  @hsh = {}
-  @hsh[:date] = row[0].to_date
-  @hsh[:habit] = "meditate"
-  @hsh[:done] = row[1]
-  
-  Daily.create(@hsh) 
-}
-
-puts "#{Daily.all.where(habit: "meditate").count} meditation records in daily habits model"
-
-
-
-#
-## ##
-## ## ## Seed journal from csv export from google sheets tracking 
-## ##
-##
-puts "#{Daily.all.where(habit: "journal").count} journal records in daily habits model"
-
-csv = CSV.read('lib/csvs/journal.csv').to_a
-csv[1..-1].each{|row|
-  @hsh = {}
-  @hsh[:date] = row[0].to_date
-  @hsh[:habit] = "journal"
-  @hsh[:done] = row[1]
-  
-  Daily.create(@hsh) 
-}
-
-puts "#{Daily.all.where(habit: "journal").count} journal records in daily habits model"
-
-
-#
-## ##
-## ## ## Seed stretch from csv export from google sheets tracking 
-## ##
-##
-puts "#{Daily.all.where(habit: "stretch").count} stretch records in daily habits model"
-
-csv = CSV.read('lib/csvs/stretch.csv').to_a
-csv[1..-1].each{|row|
-  @hsh = {}
-  @hsh[:date] = row[0].to_date
-  @hsh[:habit] = "stretch"
-  @hsh[:done] = row[1]
-  
-  Daily.create(@hsh) 
-}
-
-puts "#{Daily.all.where(habit: "stretch").count} stretch records in daily habits model"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
