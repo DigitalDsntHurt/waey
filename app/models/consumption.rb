@@ -93,4 +93,12 @@ class Consumption < ApplicationRecord
       @return_data
     end
 
+    def self.todays_consumption
+      @todays_consumptions = Consumption.where(date: Date.today)
+      @total_consumptions_count = @todays_consumptions.count
+      @todays_consumptions_wins = @todays_consumptions.where(win: true).count
+
+      {total_count: @total_consumptions_count, wins: @todays_consumptions_wins}
+    end
+
 end
