@@ -34,6 +34,27 @@ validates :habit, presence: true
     @return_data
   end
 
+  def self.last_week
+      @week_start = Date.today
+      unless @week_start.monday?
+        until @week_start.monday?
+          @week_start -= 1
+        end
+      end
+
+      @week_end = @week_start + 6
+
+      Daily.all.where("date >= ? and date <= ?", (@week_start - 7), (@week_end - 7))
+  end
+
+  def self.filter_habit(habit, query)
+    query.where(habit: habit)
+  end
+
+  def self.habit_metrics(query)
+    query.map{|record| [record.date,record.done] }
+  end
+
 private
 
 
