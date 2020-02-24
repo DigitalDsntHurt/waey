@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  get 'review/this_week'
+  get 'review/last_week'
+  get 'review/trailing_seven_days'
   get 'dailies/alcohol_index' => 'dailies#alcohol_index'
   get 'dailies/alcohol_summary' => 'dailies#alcohol_summary'
   get 'dailies/mark_done' => 'dailies#mark_done'
