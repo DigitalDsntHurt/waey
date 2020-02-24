@@ -1,7 +1,9 @@
 class Daily < ApplicationRecord
 
 validates :date, uniqueness: { scope: :habit, message: "can only have one of each daily habit type" }
-validates :date, :habit, :done, presence: true
+validates :date, presence: true
+validates :habit, presence: true
+
 
   ##
   ## ##
@@ -26,12 +28,13 @@ validates :date, :habit, :done, presence: true
 
     @return_data = []
     @weeks.each{|mon,sun|
-      #@return_data << win_loss_days_and_percents(Consumption.where("date >= ? and date <= ?", mon, sun)).slice(:wins).values[0]
-      @return_data << Daily.where(habit: "no alcohol").where("date >=? and date <= ?", mon, sun).where(done: true).count#.slice(:done)#.values[0]
+      @return_data << Daily.where(habit: "no alcohol").where("date >=? and date <= ?", mon, sun).where(done: true).count
     }
 
     @return_data
   end
+
+private
 
 
 end
