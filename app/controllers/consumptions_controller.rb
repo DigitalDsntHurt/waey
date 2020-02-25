@@ -28,7 +28,7 @@ class ConsumptionsController < ApplicationController
 
     respond_to do |format|
       if @consumption.save
-        format.html { redirect_to "/consumptions", notice: 'Consumption was successfully created.' }
+        format.html { redirect_back fallback_location: :consumptions, notice: 'Consumption was successfully created.' }
         format.json { render :show, status: :created, location: @consumption }
       else
         format.html { render :new }
