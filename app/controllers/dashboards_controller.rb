@@ -38,6 +38,7 @@ class DashboardsController < ApplicationController
 
   def today
     Habits.create_todays_habits
+    Exercise.create_todays_exercise
 
     @daily_exercise_mins_goal = 60
     @today_exercise_mins_complete = Exercise.minutes_today

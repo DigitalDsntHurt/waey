@@ -4,6 +4,8 @@ class ExercisesController < ApplicationController
   # GET /exercises
   # GET /exercises.json
   def index
+    Exercise.create_todays_exercise
+    
     @exercises = Exercise.all.sort_by{|ex| ex.date }.reverse
   end
 
@@ -28,7 +30,7 @@ class ExercisesController < ApplicationController
 
     respond_to do |format|
       if @exercise.save
-        format.html { redirect_to '/exercises', notice: 'Exercise was successfully created.' }
+        format.html { redirect_back fallback_location: :exercises, notice: 'Exercise was successfully created.' }
         format.json { render :show, status: :created, location: @exercise }
       else
         format.html { render :new }
