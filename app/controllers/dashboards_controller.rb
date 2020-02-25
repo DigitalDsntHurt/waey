@@ -40,6 +40,8 @@ class DashboardsController < ApplicationController
     Habits.create_todays_habits
     Exercise.create_todays_exercise
 
+    @todays_exercise = Exercise.where(date: Date.today)[0]
+
     @daily_exercise_mins_goal = 60
     @today_exercise_mins_complete = Exercise.minutes_today
     @today_exercise_mins_incomplete = @daily_exercise_mins_goal - @today_exercise_mins_complete

@@ -3,79 +3,97 @@
 
 <div class="dash-section">
 	<h2 class="section-title">Journal</h2>
-	<div class="dash-subsection">
-		<% @journal_days = @journal.select{|date,done| done == true }.count %>
-		<%= @journal_days %> of <%= @journal.count %> journal days = <%= (@journal_days / @journal.count.to_f * 100).round(2) %>%
-	</div>
-	
+		<h5 class="section-sub-title">
+			<% @journal_days = @journal.select{|date,done| done == true }.count %>
+			<%= @journal_days %> of <%= @journal.count %> journal days = <%= (@journal_days / @journal.count.to_f * 100).round(2) %>%
+		</h5>
+
 </div>
 
 <div class="dash-section">
 	<h2 class="section-title">Meditate</h2>
-	<div class="dash-subsection">
+	<h5 class="section-sub-title">
 		<% @meditation_days = @meditate.select{|date,done| done == true }.count %>
 		<%= @meditation_days %> of <%= @meditate.count %> meditation days = <%= (@meditation_days / @meditate.count.to_f * 100).round(2) %>%
-	</div>
+	</h5>
+	
+</div>
+
+<div class="dash-section">
+	<h2 class="section-title">Visualize Success</h2>
+	<h5 class="section-sub-title">
+		<% @visualization_days = @visualize.select{|date,done| done == true }.count %>
+		<%= @visualization_days %> of <%= @visualize.count %> visualization days = <%= (@visualization_days / @visualize.count.to_f * 100).round(2) %>%
+	</h5>
 	
 </div>
 
 <div class="dash-section">
 	<h2 class="section-title">Consumption</h2>
 
-	<div class="dash-subsection">
+	<h5 class="section-sub-title">
 		<%= @consumption[:wins] %> of 7 winning days = <%= @consumption[:percent_win] %>%
-	</div>
+	</h5>
 	
 </div>
 
 <div class="dash-section">
 	<h2 class="section-title">Alcohol</h2>
-	<div class="dash-subsection">
+	<h5 class="section-sub-title">
 		<% @no_alcohl_days = @alcohol.select{|date,done| done == true }.count %>
 		<%= @no_alcohl_days %> of <%= @alcohol.count %> no alcohol days = <%= (@no_alcohl_days / @alcohol.count.to_f * 100).round(2) %>%
-	</div>
+	</h5>
 
 </div>
 
 <div class="dash-section">
 	<h2 class="section-title">Exercise</h2>
 
-	<div class="dash-subsection">
+	<h5 class="section-sub-title">
 		Exercised <%= @exercise[:exercise_days] %> of <%= @exercise[:total_days] %> days = <%= @exercise[:day_percent] %>%
 		<br>
 		<%= @exercise[:avg_mins_per_day] %> avg mins per day = <%= @exercise[:avg_mins_per_day_percent] %>% of 60 mins per day goal
 		<br>
 		<%= @exercise[:total_minutes] %> total weekly mins = <%= @exercise[:total_minutes_percent] %>% of 420 total weekly mins goal
-	</div>
-
+	</h5>
+	<br>
 	<div class="exercise-chart"></div>
 </div>
 
 
 <div class="dash-section">
+	<h2 class="section-title">Stretch</h2>
+	<h5 class="section-sub-title">
+		<% @stretch_days = @stretch.select{|date,done| done == true }.count %>
+		<%= @stretch_days %> of <%= @stretch.count %> stretch days = <%= (@stretch_days / @stretch.count.to_f * 100).round(2) %>%
+	</h5>
+	
+</div>
+
+<div class="dash-section">
 	<h2 class="section-title">AM Brush</h2>
-	<div class="dash-subsection">
+	<h5 class="section-sub-title">
 		<% @ambrush_days = @ambrush.select{|date,done| done == true }.count %>
 		<%= @ambrush_days %> of <%= @ambrush.count %> am brush days = <%= (@ambrush_days / @ambrush.count.to_f * 100).round(2) %>%
-	</div>
+	</h5>
 	<div class="ambrush-chart"></div>
 </div>
 
 <div class="dash-section">
 	<h2 class="section-title">PM Brush</h2>
-	<div class="dash-subsection">
+	<h5 class="section-sub-title">
 		<% @pmbrush_days = @pmbrush.select{|date,done| done == true }.count %>
 		<%= @pmbrush_days %> of <%= @pmbrush.count %> pm brush days = <%= (@pmbrush_days / @pmbrush.count.to_f * 100).round(2) %>%
-	</div>
+	</h5>
 	<div class="pmbrush-chart"></div>
 </div>
 
 <div class="dash-section">
 	<h2 class="section-title">Shower</h2>
-	<div class="dash-subsection">
+	<h5 class="section-sub-title">
 		<% @shower_days = @shower.select{|date,done| done == true }.count %>
 		<%= @shower_days %> of <%= @shower.count %> shower days = <%= (@shower_days / @shower.count.to_f * 100).round(2) %>%
-	</div>
+	</h5>
 	
 </div>
 

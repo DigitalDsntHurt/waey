@@ -110,22 +110,22 @@
 
 <div class="dash-section">
 	<h3 class="section-title">Consumption</h3>
-	<div class="dash-subsection">
+	<h5 class="section-sub-title">
 		<% if Consumption.todays_consumption[:total_count] == 0 %>
 			<h6>nothing consumed today</h6>
 		<% else %>
 			<%= Consumption.todays_consumption[:wins] %> wins of <%= Consumption.todays_consumption[:total_count] %> total consumptions ( <%= ((Consumption.todays_consumption[:wins] / Consumption.todays_consumption[:total_count]) * 100.0).round(2) %>% )
 		<% end %>
-	</div>
+	</h5>
 	<%= render partial: 'consumptions/mini_form', locals: {consumption: Consumption.new} %>	
 </div>
 
 <div class="dash-section">
 	<h3 class="section-title">Exercise</h3>
-	<div class="dash-subsection">
+	<h5 class="section-sub-title">
 		<%= Exercise.minutes_today %> mins of 60 ( <%= (Exercise.minutes_today/60*100.0).round(2) %>% ) completed 
-	</div>
-	<%= render partial: 'exercises/mini_form', locals: {exercise: Exercise.new} %>
+	</h5>
+	<%= render partial: 'exercises/mini_form', locals: {exercise: @todays_exercise} %>
 	
 	
 	
