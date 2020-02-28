@@ -278,44 +278,44 @@ require 'csv'
 
 
 
-#
-## ##
-## ## ## Seed sleep from csv export from google sheets tracking 
-## ##
-##
-puts "#{Sleep.all.count} sleep records in sleep model"
+# #
+# ## ##
+# ## ## ## Seed sleep from csv export from google sheets tracking 
+# ## ##
+# ##
+# puts "#{Sleep.all.count} sleep records in sleep model"
 
-csv = CSV.read('lib/csvs/sleep.csv').to_a
-csv[1..-1].each{|row|
-  @hsh = {}
-  @hsh[:date] = row[0].to_date
-  @hsh[:hrs] = row[1]
-  @hsh[:mins] = row[2]
+# csv = CSV.read('lib/csvs/sleep.csv').to_a
+# csv[1..-1].each{|row|
+#   @hsh = {}
+#   @hsh[:date] = row[0].to_date
+#   @hsh[:hrs] = row[1]
+#   @hsh[:mins] = row[2]
   
-  Sleep.create(@hsh) 
-}
+#   Sleep.create(@hsh) 
+# }
 
-puts "#{Sleep.all.count} sleep records in sleep model"
+# puts "#{Sleep.all.count} sleep records in sleep model"
 
 
 
-#
-## ##
-## ## ## Seed hrv from csv export from google sheets tracking 
-## ##
-##
-puts "#{Hrv.all.count} hrv records in hrv model"
+# #
+# ## ##
+# ## ## ## Seed hrv from csv export from google sheets tracking 
+# ## ##
+# ##
+# puts "#{Hrv.all.count} hrv records in hrv model"
 
-csv = CSV.read('lib/csvs/hrv.csv').to_a
-csv[1..-1].each{|row|
-  @hsh = {}
-  @hsh[:date] = row[0].to_date
-  @hsh[:hrv] = row[1]
+# csv = CSV.read('lib/csvs/hrv.csv').to_a
+# csv[1..-1].each{|row|
+#   @hsh = {}
+#   @hsh[:date] = row[0].to_date
+#   @hsh[:hrv] = row[1]
   
-  Hrv.create(@hsh)
-}
+#   Hrv.create(@hsh)
+# }
 
-puts "#{Hrv.all.count} hrv records in hrv model"
+# puts "#{Hrv.all.count} hrv records in hrv model"
 
 ##
 ## ##
