@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: MyString
+  hrs: MyString
+  mins: MyString
+  total_hrs: MyString
+  total_mins: MyString
+
+two:
+  date: MyString
+  hrs: MyString
+  mins: MyString
+  total_hrs: MyString
+  total_mins: MyString

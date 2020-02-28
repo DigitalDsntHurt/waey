@@ -1,0 +1,40 @@
+<%= form_with(model: sleep, local: true) do |form| %>
+  <% if sleep.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sleep.errors.count, "error") %> prohibited this sleep from being saved:</h2>
+
+      <ul>
+        <% sleep.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="table-responsive">
+  <table class="form-partial">
+    <tr>
+      <td class="text-field-width">
+        <div class="form-group">
+          <%= form.text_field :date, data: { behavior: "date-picker" }, placeholder: "date", class: "form-control", value: Date.today %>
+        </div>
+      </td>
+      <td class="text-field-width">
+          <div class="form-group">
+            <%= form.number_field :hrs, class: "form-control" %>
+          </div>
+      </td>
+      <td class="text-field-width">
+        <div class="form-group">
+          <%= form.number_field :mins, class: "form-control" %>
+        </div>
+      </td>
+      <td class="button-cell">
+        <div class="actions">
+          <%= form.submit "log", class: "btn btn-info btn-md short-text-button" %>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+<% end %>
