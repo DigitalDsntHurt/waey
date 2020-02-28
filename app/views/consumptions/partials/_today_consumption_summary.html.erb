@@ -1,0 +1,28 @@
+<h3 class="section-title">Consumption</h3>
+<h5 class="section-sub-title">
+	<% if Consumption.todays_consumption[:total_count] == 0 %>
+		nothing consumed today
+	<% else %>
+		<%= Consumption.todays_consumption[:wins] %> wins of <%= Consumption.todays_consumption[:total_count] %> total consumptions ( <%= ((Consumption.todays_consumption[:wins] / Consumption.todays_consumption[:total_count].to_f) * 100.0).round(2) %>% )
+		<table class="index-table" style="margin-top: 1vh;">
+			<thead>
+				<th>
+					
+				</th>
+			</thead>
+			<% Consumption.todays_consumption_records.each{|consumption| %>
+				<tr>
+					<td>
+						<%= consumption.description %>	
+					</td>
+					<td>
+						<%= consumption.win %>	
+					</td>
+					<td>
+						<%= consumption.feeling_score %>	
+					</td>
+				</tr>
+			<% } %>
+		</table>
+	<% end %>
+</h5>
