@@ -1,0 +1,38 @@
+<%= form_with(model: hrv, local: true) do |form| %>
+  <% if hrv.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(hrv.errors.count, "error") %> prohibited this hrv from being saved:</h2>
+
+      <ul>
+        <% hrv.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="table-responsive">
+  <table class="form-partial">
+    <tr>
+      <td class="text-field-width">
+        <div class="form-group">
+          <%= form.text_field :date, data: { behavior: "date-picker" }, placeholder: "date", class: "form-control", value: Date.today %>
+        </div>
+      </td>
+      <td class="text-field-width">
+          <div class="form-group">
+            <%= form.number_field :hrv, placeholder: "hrv", class: "form-control" %>
+          </div>
+      </td>
+      <td class="button-cell">
+        <div class="actions">
+          <%= form.submit "log", class: "btn btn-info btn-md short-text-button" %>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+<% end %>
+
+
+

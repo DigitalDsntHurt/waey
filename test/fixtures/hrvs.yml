@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2020-02-28
+  hrv: 1
+
+two:
+  date: 2020-02-28
+  hrv: 1

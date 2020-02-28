@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :hrvs
+  resources :sleeps
   get 'review/this_week'
   get 'review/last_week'
   get 'review/trailing_seven_days'

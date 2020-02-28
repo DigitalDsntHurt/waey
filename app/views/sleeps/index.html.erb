@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-title">Sleeps</h1>
+
+<%= render partial: "mini_form", locals: {sleep: Sleep.new} %>
+
+<table class="index-table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th style="border-right: dotted 2px black;">Total hrs</th>
+      <th>Total mins</th>
+      <th>Hrs</th>
+      <th>Mins</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sleeps.each do |sleep| %>
+      <tr>
+        <td class="center-text"><%= link_to sleep.date, sleep %></td>
+        <td class="center-text" style="border-right: dotted 2px black;"><%= sleep.total_hrs %></td>
+        <td class="center-text"><%= sleep.total_mins %></td>
+        <td class="center-text"><%= sleep.hrs %></td>
+        <td class="center-text"><%= sleep.mins %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

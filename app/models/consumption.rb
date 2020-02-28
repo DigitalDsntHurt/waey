@@ -36,6 +36,10 @@ class Consumption < ApplicationRecord
       Consumption.all.where("date >= ? and date <= ?", (@week_start - 7), (@week_end - 7))
     end
 
+    def self.winning_day(date)
+      !Consumption.where(date: date).pluck(:win).include?(false)
+    end
+
     def self.summarize_days_to_wins_and_losses(days_query)
       @payload = []
       days_query.group_by{|record| record.date }.to_a.each{|date,records|
@@ -99,6 +103,10 @@ class Consumption < ApplicationRecord
       @todays_consumptions_wins = @todays_consumptions.where(win: true).count
 
       {total_count: @total_consumptions_count, wins: @todays_consumptions_wins}
+    end
+
+    def self.todays_consumption_records
+      Consumption.where(date: Date.today)
     end
 
 end

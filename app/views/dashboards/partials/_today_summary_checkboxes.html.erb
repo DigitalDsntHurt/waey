@@ -1,0 +1,121 @@
+<div class="dash-section">
+	<h3 class="section-title">Daily Habits</h3>
+	<table class="mini-habits-table">
+		<thead>
+			<th>am brush</th>
+			<th>stretch</th>
+			<th>journal</th>
+			<th>meditate</th>
+			<th>visualize success</th>
+			<th>shower</th>
+			<th>pm brush</th>
+			<th style="border-right: dotted 1px black">no alcohol</th>
+			<th>consumption win</th>
+			<th>60 mins exercise</th>
+		</thead>
+		<tr>
+			<td>				
+				<% if @todays_ambrush.done == true %>
+					<%= link_to dailies_mark_undone_path(daily_id: @todays_ambrush.id), class: "icon-link" do %>
+						<%= fa_icon "check-square", size: '2x', style: 'color: green' %>
+					<% end %>
+				<% else %>
+					<%= link_to dailies_mark_done_path(daily_id: @todays_ambrush.id), class: "icon-link" do %>
+						<%= fa_icon "square", size: '2x', style: 'color: red' %>
+					<% end %>
+				<% end %>
+			</td>
+			<td>				
+				<% if @todays_stretch.done == true %>
+					<%= link_to dailies_mark_undone_path(daily_id: @todays_stretch.id), class: "icon-link" do %>
+						<%= fa_icon "check-square", size: '2x', style: 'color: green' %>
+					<% end %>
+				<% else %>
+					<%= link_to dailies_mark_done_path(daily_id: @todays_stretch.id), class: "icon-link" do %>
+						<%= fa_icon "square", size: '2x', style: 'color: red' %>
+					<% end %>
+				<% end %>
+			</td>
+			<td>				
+				<% if @todays_journal.done == true %>
+					<%= link_to dailies_mark_undone_path(daily_id: @todays_journal.id), class: "icon-link" do %>
+						<%= fa_icon "check-square", size: '2x', style: 'color: green' %>
+					<% end %>
+				<% else %>
+					<%= link_to dailies_mark_done_path(daily_id: @todays_journal.id), class: "icon-link" do %>
+						<%= fa_icon "square", size: '2x', style: 'color: red' %>
+					<% end %>
+				<% end %>
+			</td>
+			<td>				
+				<% if @todays_meditation.done == true %>
+					<%= link_to dailies_mark_undone_path(daily_id: @todays_meditation.id), class: "icon-link" do %>
+						<%= fa_icon "check-square", size: '2x', style: 'color: green' %>
+					<% end %>
+				<% else %>
+					<%= link_to dailies_mark_done_path(daily_id: @todays_meditation.id), class: "icon-link" do %>
+						<%= fa_icon "square", size: '2x', style: 'color: red' %>
+					<% end %>
+				<% end %>
+			</td>
+			<td>				
+				<% if @todays_visualization.done == true %>
+					<%= link_to dailies_mark_undone_path(daily_id: @todays_visualization.id), class: "icon-link" do %>
+						<%= fa_icon "check-square", size: '2x', style: 'color: green' %>
+					<% end %>
+				<% else %>
+					<%= link_to dailies_mark_done_path(daily_id: @todays_visualization.id), class: "icon-link" do %>
+						<%= fa_icon "square", size: '2x', style: 'color: red' %>
+					<% end %>
+				<% end %>
+			</td>
+			<td>				
+				<% if @todays_shower.done == true %>
+					<%= link_to dailies_mark_undone_path(daily_id: @todays_shower.id), class: "icon-link" do %>
+						<%= fa_icon "check-square", size: '2x', style: 'color: green' %>
+					<% end %>
+				<% else %>
+					<%= link_to dailies_mark_done_path(daily_id: @todays_shower.id), class: "icon-link" do %>
+						<%= fa_icon "square", size: '2x', style: 'color: red' %>
+					<% end %>
+				<% end %>
+			</td>
+			<td>				
+				<% if @todays_pmbrush.done == true %>
+					<%= link_to dailies_mark_undone_path(daily_id: @todays_pmbrush.id), class: "icon-link" do %>
+						<%= fa_icon "check-square", size: '2x', style: 'color: green' %>
+					<% end %>
+				<% else %>
+					<%= link_to dailies_mark_done_path(daily_id: @todays_pmbrush.id), class: "icon-link" do %>
+						<%= fa_icon "square", size: '2x', style: 'color: red' %>
+					<% end %>
+				<% end %>
+			</td>
+			<td style="border-right: dotted 1px black">			
+				<% if @todays_alcohol.done == true %>
+					<%= link_to dailies_mark_undone_path(daily_id: @todays_alcohol.id), class: "icon-link" do %>
+						<%= fa_icon "check-square", size: '2x', style: 'color: green' %>
+					<% end %>
+				<% else %>
+					<%= link_to dailies_mark_done_path(daily_id: @todays_alcohol.id), class: "icon-link" do %>
+						<%= fa_icon "square", size: '2x', style: 'color: red' %>
+					<% end %>
+				<% end %>
+			</td>
+			<td>
+				<% if @todays_consumption %>
+					<%= fa_icon "check-square", size: '2x', style: 'color: rgba(0,255,0,0.3);' %>
+				<% else %>
+					<%= fa_icon "square", size: '2x', style: 'color: rgba(255,0,0,0.3);' %>
+				<% end %>
+			</td>
+			<td>
+				<% if @todays_exercise.total_minutes >= 60 %>
+					<%= fa_icon "check-square", size: '2x', style: 'color: rgba(0,255,0,0.3);' %>
+				<% else %>
+					<%= fa_icon "square", size: '2x', style: 'color: rgba(255,0,0,0.3);' %>
+				<% end %>
+			</td>
+		</tr>
+	</table>
+</div>
