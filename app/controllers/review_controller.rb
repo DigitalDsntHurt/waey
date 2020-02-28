@@ -26,4 +26,11 @@ class ReviewController < ApplicationController
 
   def trailing_seven_days
   end
+
+  def this_year_to_date
+    @chart_data = Exercise.year_to_date_minutes_per_day
+
+    @exercise = Exercise.review_totals
+    @exercise_chart_data = Exercise.last_week_mins_per_day_chart_data
+  end
 end

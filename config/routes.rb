@@ -2,9 +2,14 @@ Rails.application.routes.draw do
   
   resources :hrvs
   resources :sleeps
+  
+
+  get 'review/this_year_to_date'
   get 'review/this_week'
   get 'review/last_week'
   get 'review/trailing_seven_days'
+
+
   get 'dailies/alcohol_index' => 'dailies#alcohol_index'
   get 'dailies/alcohol_summary' => 'dailies#alcohol_summary'
   get 'dailies/mark_done' => 'dailies#mark_done'

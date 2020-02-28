@@ -53,4 +53,16 @@ class Exercise < ApplicationRecord
     last_week.pluck(:total_minutes)
   end
 
+
+  def self.year_to_date_minutes_per_day
+    @start = Date.new(Date.today.year,1,1)
+    @end = Date.today
+    Exercise.all.where("date >= ? and date <= ?", @start, @end).map{|exercise_record| [exercise_record.date.to_date, exercise_record.total_minutes] }
+  end
+
+
+
+
+  
+
 end
