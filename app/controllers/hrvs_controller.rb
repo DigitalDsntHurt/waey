@@ -4,7 +4,7 @@ class HrvsController < ApplicationController
   # GET /hrvs
   # GET /hrvs.json
   def index
-    @hrvs = Hrv.all
+    @hrvs = Hrv.all.sort_by{|hrv| hrv.date }.reverse
   end
 
   # GET /hrvs/1

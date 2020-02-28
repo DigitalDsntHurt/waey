@@ -4,7 +4,7 @@ class SleepsController < ApplicationController
   # GET /sleeps
   # GET /sleeps.json
   def index
-    @sleeps = Sleep.all
+    @sleeps = Sleep.all.sort_by{|sleep| sleep.date }.reverse
   end
 
   # GET /sleeps/1
