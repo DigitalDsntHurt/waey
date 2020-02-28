@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @hrv.date %>
+</p>
+
+<p>
+  <strong>Hrv:</strong>
+  <%= @hrv.hrv %>
+</p>
+
+<%= link_to 'Edit', edit_hrv_path(@hrv) %> |
+<%= link_to 'Destroy', @hrv, method: :delete %> |
+<%= link_to 'Back', hrvs_path %>

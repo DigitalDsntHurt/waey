@@ -1,10 +1,10 @@
-<%= form_with(model: sleep, local: true) do |form| %>
-  <% if sleep.errors.any? %>
+<%= form_with(model: hrv, local: true) do |form| %>
+  <% if hrv.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(sleep.errors.count, "error") %> prohibited this sleep from being saved:</h2>
+      <h2><%= pluralize(hrv.errors.count, "error") %> prohibited this hrv from being saved:</h2>
 
       <ul>
-        <% sleep.errors.full_messages.each do |message| %>
+        <% hrv.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -21,13 +21,8 @@
       </td>
       <td class="text-field-width">
           <div class="form-group">
-            <%= form.number_field :hrs, placeholder: "hours", class: "form-control" %>
+            <%= form.number_field :hrv, placeholder: "hrv", class: "form-control" %>
           </div>
-      </td>
-      <td class="text-field-width">
-        <div class="form-group">
-          <%= form.number_field :mins, placeholder: "minutes", class: "form-control" %>
-        </div>
       </td>
       <td class="button-cell">
         <div class="actions">
@@ -38,3 +33,6 @@
   </table>
 </div>
 <% end %>
+
+
+

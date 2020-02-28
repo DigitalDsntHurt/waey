@@ -1,0 +1,27 @@
+<%= form_with(model: hrv, local: true) do |form| %>
+  <% if hrv.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(hrv.errors.count, "error") %> prohibited this hrv from being saved:</h2>
+
+      <ul>
+        <% hrv.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.text_field :date, data: { behavior: "date-picker" } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hrv %>
+    <%= form.number_field :hrv %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

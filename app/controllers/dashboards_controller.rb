@@ -39,9 +39,13 @@ class DashboardsController < ApplicationController
   def today
     Habits.create_todays_habits
     Exercise.create_todays_exercise
+    Sleep.create_todays_sleep
+    Hrv.create_todays_hrv
 
     @todays_consumption = Consumption.winning_day(Date.today)
     @todays_exercise = Exercise.where(date: Date.today)[0]
+    @todays_sleep = Sleep.where(date: Date.today)[0]
+    @todays_hrv = Hrv.where(date: Date.today)[0]
 
     @daily_exercise_mins_goal = 60
     @today_exercise_mins_complete = Exercise.minutes_today

@@ -11,5 +11,16 @@
 
 <div class="dash-section">
 	<%= render partial: 'exercises/partials/today_exercise_summary.html.erb' %>
-	<%= render partial: 'exercises/partials/mini_form', locals: {exercise: @todays_exercise} %>	
+	<%= render partial: 'exercises/partials/mini_form', locals: {exercise: @todays_exercise} %>
+</div>
+<div class="dash-section">
+	<h2 class="section-title">Sleep</h2>
+	<h5 class="section-sub-title"><%= @todays_sleep.total_hrs %> hrs sleep last night</h5>
+	<%= render partial: 'sleeps/mini_form', locals: {sleep: @todays_sleep} %>
+</div>
+
+<div class="dash-section">
+	<h2 class="section-title">HRV</h2>
+	<h5 class="section-sub-title"><%= @todays_hrv.hrv %> HRV last night</h5>
+	<%= render partial: 'hrvs/mini_form', locals: {hrv: @todays_hrv} %>
 </div>

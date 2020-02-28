@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-title">HRV</h1>
+
+<% if true %>
+<%= render partial: "mini_form", locals: {hrv: Hrv.new} %>
+<% end %>
+
+<table class="index-table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Hrv</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hrvs.each do |hrv| %>
+      <tr>
+        <td class="center-text"><%= link_to hrv.date, hrv %></td>
+        <td class="center-text"><%= hrv.hrv %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

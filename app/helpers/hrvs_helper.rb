@@ -1,0 +1,2 @@
+module HrvsHelper
+end
