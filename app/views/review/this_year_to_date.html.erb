@@ -1,0 +1,23 @@
+<h1 class="page-title">Year to Date Review</h1>
+
+<%= @chart_data %>
+
+<div class="dash-section">
+	<h2 class="section-title">Exercise</h2>
+
+	<br>
+	<div class="exercise-chart"></div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h5 class="section-sub-title">
+		Exercised <%= @exercise[:exercise_days] %> of <%= @exercise[:total_days] %> days = <%= @exercise[:day_percent] %>%
+		<br>
+		<%= @exercise[:avg_mins_per_day] %> avg mins per day = <%= @exercise[:avg_mins_per_day_percent] %>% of 60 mins per day goal
+		<br>
+		<%= @exercise[:total_minutes] %> total weekly mins = <%= @exercise[:total_minutes_percent] %>% of 420 total weekly mins goal
+	</h5>
+</div>
