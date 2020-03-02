@@ -4,6 +4,8 @@ class ReviewController < ApplicationController
 
   def last_week
     @journal = Daily.habit_metrics(Daily.filter_habit("journal",Daily.last_week))
+    @journal_chart_data = @journal.map{|date,bool| bool == true ? 1 : -1 }
+
     @meditate = Daily.habit_metrics(Daily.filter_habit("meditate",Daily.last_week))
     @visualize = Daily.habit_metrics(Daily.filter_habit("visualize success",Daily.last_week))
 
@@ -22,6 +24,12 @@ class ReviewController < ApplicationController
     @pmbrush_chart_data = @pmbrush.map{|date,bool| bool == true ? 1 : -1 }
     
     @shower = Daily.habit_metrics(Daily.filter_habit("shower",Daily.last_week))
+
+    @sleep = Sleep.review_totals
+    @sleep_chart_data = Sleep.last_week_hrs_per_night_chart_data
+
+    @hrv = Hrv.review_totals
+    @hrv_chart_data = Hrv.last_week_hrv_per_night_chart_data
   end
 
   def trailing_seven_days
