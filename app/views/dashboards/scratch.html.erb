@@ -1,18 +1,23 @@
 <h1>Dashboards#scratch</h1>
 <p>Find me in app/views/dashboards/scratch.html.erb</p>
-<h1>D3 TEST</h1>
+<h1>D3 Font Scaling</h1>
 
 <div class="chart"></div>
 
 <script type="text/javascript">
-	var data = [30, 86, 168, 281, 303, 365];
+	var data = [30, 86, 168, 281, 303, 365]
+
+	var scale = d3.scaleLinear()
+		.domain([d3.min(data),d3.max(data)])
+		.range([1,6])
 
 	d3.select(".chart")
 	  .selectAll("div")
 	  .data(data)
 	    .enter()
-	    .append("div")
-	    .style("width", function(d) { return d + "px"; })
-	    .text(function(d) { return d; });
-
+	    .append("div").attr("class","text-box")
+	    .append("text")
+	    //.style("width", function(d) { return d + "px"; })
+	    .text(function(d) { return d; })
+	    .style("font-size",function(d){return `${scale(d)}em`})
 </script>
