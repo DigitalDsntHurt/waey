@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1 class="page-title"><%= Date.today.inspect %></h1>
-
-<%= render partial: 'dashboards/partials/today_summary_checkboxes' %>
+<div class="dash-section">
+	<%= render partial: 'dashboards/partials/yesterday_summary_checkboxes' %>
+	<hr class="dotted">
+	<%= render partial: 'dashboards/partials/today_summary_checkboxes' %>
+</div>
 
 <div class="dash-section">
 	<%= render partial: 'consumptions/partials/today_consumption_summary.html.erb' %>

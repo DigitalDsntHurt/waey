@@ -4,6 +4,9 @@ class DailiesController < ApplicationController
   # GET /dailies
   # GET /dailies.json
   def index
+    # create habits
+    Habits.create_todays_habits
+    
     @dailies = Daily.all.sort_by{|daily| daily.date }.reverse
   end
 
