@@ -1,4 +1,8 @@
 class DashboardsController < ApplicationController
+  def blah
+    @data = Exercise.year_to_date_minutes_per_day.to_json.html_safe
+  end
+
   def scratch
     @exercise_days = Exercise.daily_minutes.map{|arr| arr[1] }.map{|i|
       if i == 0

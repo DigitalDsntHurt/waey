@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :exercises
 
 
+  get 'dashboards/blah'
   get 'dashboards/scratch'
   get 'dashboards/exercise'
   get 'dashboards/consumption'
