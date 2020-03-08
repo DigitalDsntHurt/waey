@@ -5,9 +5,23 @@ class Exercise < ApplicationRecord
   validates :description, presence: true
   validates :total_minutes, presence: true
 
+  after_validation :downcase_description
+
+##                             ##
+## ##                       ## ##
+## ## ## RECORD CREATION ## ## ##
+## ##                       ## ##
+##                             ##
+
   def self.create_todays_exercise
     Exercise.create(date: Date.today, description: "--", total_minutes: 0)
   end
+
+##                        ##
+## ##                  ## ##
+## ## ## DATA QUERY ## ## ##
+## ##                  ## ##
+##                        ##
 
   def self.daily_minutes
     Exercise.all.map{|day| [day.date, day.total_minutes] }
@@ -61,6 +75,18 @@ class Exercise < ApplicationRecord
   end
 
 
+
+private
+
+##                       ##
+## ##                 ## ##
+## ## ## CALLBACKS ## ## ##
+## ##                 ## ##
+##                       ##
+
+def downcase_description
+  self.description = self.description.downcase
+end
 
 
   

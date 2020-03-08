@@ -1,10 +1,17 @@
 class Consumption < ApplicationRecord
 
-  ##
-  ## ##
-  ## ## ## DATA QUERIES
-  ## ##
-  ##
+  validates :date, presence: true
+  validates :description, presence: true
+  validates :win, presence: true
+  validates :feeling_score, presence: true
+
+  after_validation :downcase_description
+
+##                        ##
+## ##                  ## ##
+## ## ## DATA QUERY ## ## ##
+## ##                  ## ##
+##                        ##
 
     def self.trailing_seven_days
       Consumption.all.where("date > ? and date < ?", Date.today - 8, Date.today)
@@ -109,4 +116,16 @@ class Consumption < ApplicationRecord
       Consumption.where(date: Date.today)
     end
 
+
+    private
+
+##                       ##
+## ##                 ## ##
+## ## ## CALLBACKS ## ## ##
+## ##                 ## ##
+##                       ##    
+
+    def downcase_description
+      self.description = self.description.downcase
+    end
 end
