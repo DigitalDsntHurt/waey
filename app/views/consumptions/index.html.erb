@@ -16,7 +16,7 @@
   </thead>
 
   <tbody>
-    <% @consumptions.each do |consumption| %>
+    <% @consumptions.each_with_index do |consumption,i| %>
       <tr>
         <td><%= consumption.date %></td>
         <td><%= consumption.date.strftime("%A") %></td>
@@ -24,6 +24,13 @@
         <td class="center-text"><%= consumption.feeling_score %></td>
         <td class="wrap-text-cell"><%= link_to consumption.description, consumption %></td>
       </tr>
+      <% unless @consumptions[i+1] == nil %>
+        <% if @consumptions[i+1].date < consumption.date %>
+            <tr>
+              <td colspan="5">&nbsp;</td>
+            </tr>
+        <% end -%>
+      <% end -%>
     <% end %>
   </tbody>
 </table>
