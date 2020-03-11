@@ -7,7 +7,6 @@ class Consumption < ApplicationRecord
 
   
   after_validation :downcase_description
-  before_save :set_to_false
 
 ##                        ##
 ## ##                  ## ##
@@ -125,11 +124,7 @@ class Consumption < ApplicationRecord
 ## ##                 ## ##
 ## ## ## CALLBACKS ## ## ##
 ## ##                 ## ##
-##                       ##    
-
-    def set_to_false
-      self.win = false unless self.win == true
-    end
+##                       ##
 
     def downcase_description
       self.description = self.description.downcase
