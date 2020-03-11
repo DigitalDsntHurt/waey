@@ -2,10 +2,12 @@ class Consumption < ApplicationRecord
 
   validates :date, presence: true
   validates :description, presence: true
-  validates :win, presence: true
+  #validates :win, presence: true
   validates :feeling_score, presence: true
 
+  
   after_validation :downcase_description
+  before_save :set_to_false
 
 ##                        ##
 ## ##                  ## ##
@@ -124,6 +126,10 @@ class Consumption < ApplicationRecord
 ## ## ## CALLBACKS ## ## ##
 ## ##                 ## ##
 ##                       ##    
+
+    def set_to_false
+      self.win = false unless self.win == true
+    end
 
     def downcase_description
       self.description = self.description.downcase
