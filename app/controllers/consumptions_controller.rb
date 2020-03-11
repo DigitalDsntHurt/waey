@@ -4,7 +4,7 @@ class ConsumptionsController < ApplicationController
   # GET /consumptions
   # GET /consumptions.json
   def index
-    @consumptions = Consumption.all.sort_by{|consumption| consumption.date }.reverse
+    @consumptions = Consumption.all.sort_by{|consumption| consumption.date }.reverse#.group_by{|consumption| consumption.date}
   end
 
   # GET /consumptions/1
