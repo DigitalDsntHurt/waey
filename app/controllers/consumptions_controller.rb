@@ -4,6 +4,8 @@ class ConsumptionsController < ApplicationController
   # GET /consumptions
   # GET /consumptions.json
   def index
+    # create outstanding habits
+    Habits.create_outstanding_habits
     @consumptions = Consumption.all.sort_by{|consumption| consumption.date }.reverse#.group_by{|consumption| consumption.date}
   end
 

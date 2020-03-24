@@ -10,6 +10,7 @@ module Samsara
   class Application < Rails::Application
     config.assets.paths << Rails.root.join("data")
     config.autoload_paths += %W(#{config.root}/app/habits)
+    config.autoload_paths += %W(#{config.root}/app/app_time)
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
