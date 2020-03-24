@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-title">Weekly Data</h1>
+
+<table class="index-table">
+  <thead>
+    <tr>
+      <td class="center-text">Week of</th>
+      <td class="center-text">Meditation days</th>
+      <td class="center-text">Journal days</th>
+      <td class="center-text">Winning consumption days</th>
+      <td class="center-text">No alcohol days</th>
+      <td class="center-text">Exercise days</th>
+      <td class="center-text">Total sleep hours</th>
+      <td class="center-text">Shower days</th>
+      <td class="center-text">Am brush days</th>
+      <td class="center-text">Pm brush days</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @weekly_data.each do |weekly_datum| %>
+      <tr>
+        <td class="center-text"><%= link_to weekly_datum.week_of, weekly_datum %></td>
+        <td class="center-text"><%= weekly_datum.meditation_days %></td>
+        <td class="center-text"><%= weekly_datum.journal_days %></td>
+        <td class="center-text"><%= weekly_datum.winning_consumption_days %></td>
+        <td class="center-text"><%= weekly_datum.no_alcohol_days %></td>
+        <td class="center-text"><%= weekly_datum.exercise_days %></td>
+        <td class="center-text"><%= weekly_datum.total_sleep_hours %></td>
+        <td class="center-text"><%= weekly_datum.shower_days %></td>
+        <td class="center-text"><%= weekly_datum.am_brush_days %></td>
+        <td class="center-text"><%= weekly_datum.pm_brush_days %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

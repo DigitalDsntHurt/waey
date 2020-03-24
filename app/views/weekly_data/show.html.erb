@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Week of:</strong>
+  <%= @weekly_datum.week_of %>
+</p>
+
+<p>
+  <strong>Meditation days:</strong>
+  <%= @weekly_datum.meditation_days %>
+</p>
+
+<p>
+  <strong>Journal days:</strong>
+  <%= @weekly_datum.journal_days %>
+</p>
+
+<p>
+  <strong>Winning consumption days:</strong>
+  <%= @weekly_datum.winning_consumption_days %>
+</p>
+
+<p>
+  <strong>No alcohol days:</strong>
+  <%= @weekly_datum.no_alcohol_days %>
+</p>
+
+<p>
+  <strong>Exercise days:</strong>
+  <%= @weekly_datum.exercise_days %>
+</p>
+
+<p>
+  <strong>Total sleep hours:</strong>
+  <%= @weekly_datum.total_sleep_hours %>
+</p>
+
+<p>
+  <strong>Shower days:</strong>
+  <%= @weekly_datum.shower_days %>
+</p>
+
+<p>
+  <strong>Am brush days:</strong>
+  <%= @weekly_datum.am_brush_days %>
+</p>
+
+<p>
+  <strong>Pm brush days:</strong>
+  <%= @weekly_datum.pm_brush_days %>
+</p>
+
+<%= link_to 'Edit', edit_weekly_datum_path(@weekly_datum) %> |
+<%= link_to 'Destroy', @weekly_datum, method: :delete %> |
+<%= link_to 'Back', weekly_data_path %>

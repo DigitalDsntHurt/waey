@@ -1,0 +1,2 @@
+module WeeklyDataHelper
+end

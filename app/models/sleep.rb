@@ -38,6 +38,16 @@ class Sleep < ApplicationRecord
     last_week.pluck(:total_hrs)
   end
 
+  def self.total_hrs(startdate,enddate)
+    @total_hrs = Sleep.where('date >= ? and date <= ?', startdate, enddate).pluck(:total_hrs).inject{|hrs,sum| hrs + sum }
+    
+    if @total_hrs == nil
+      return 0
+    else
+      return @total_hrs.round(2)
+    end
+  end
+
   private
 
   def calculate_total_hrs
