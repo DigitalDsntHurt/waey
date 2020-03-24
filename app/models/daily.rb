@@ -55,6 +55,10 @@ validates :habit, presence: true
     query.map{|record| [record.date,record.done] }
   end
 
+  def self.completed_habits(habit,start_date,end_date)
+    Daily.where(habit: habit).where('date >= ? and date <= ?', start_date, end_date).select{|record| record.done == true}.count
+  end
+
 private
 
 

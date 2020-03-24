@@ -117,6 +117,12 @@ class Consumption < ApplicationRecord
       Consumption.where(date: Date.today)
     end
 
+    def self.winning_days(startdate,enddate)
+      summarize_days_to_wins_and_losses(Consumption.where('date >= ? and date <= ?', startdate, enddate)).select{|date,bool| bool == true }.count
+
+      # return @day_groups
+    end
+
 
     private
 

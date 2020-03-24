@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  week_of: 2020-03-24
+  meditation_days: 1
+  journal_days: 1
+  winning_consumption_days: 1
+  no_alcohol_days: 1
+  exercise_days: 1
+  total_sleep_hours: 1.5
+  shower_days: 1
+  am_brush_days: 1
+  pm_brush_days: 1
+
+two:
+  week_of: 2020-03-24
+  meditation_days: 1
+  journal_days: 1
+  winning_consumption_days: 1
+  no_alcohol_days: 1
+  exercise_days: 1
+  total_sleep_hours: 1.5
+  shower_days: 1
+  am_brush_days: 1
+  pm_brush_days: 1

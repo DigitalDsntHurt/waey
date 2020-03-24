@@ -74,6 +74,9 @@ class Exercise < ApplicationRecord
     Exercise.all.where("date >= ? and date <= ?", @start, @end).map{|exercise_record| [exercise_record.date.to_date, exercise_record.total_minutes] }
   end
 
+  def self.exercise_days(startdate,enddate)
+    Exercise.where("date >= ? and date <= ?", startdate, enddate).where('total_minutes > ?', 0).count
+  end
 
 
 private

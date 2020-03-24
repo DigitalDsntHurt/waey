@@ -1,0 +1,67 @@
+<%= form_with(model: weekly_datum, local: true) do |form| %>
+  <% if weekly_datum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(weekly_datum.errors.count, "error") %> prohibited this weekly_datum from being saved:</h2>
+
+      <ul>
+        <% weekly_datum.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :week_of %>
+    <%= form.date_select :week_of %>
+  </div>
+
+  <div class="field">
+    <%= form.label :meditation_days %>
+    <%= form.number_field :meditation_days %>
+  </div>
+
+  <div class="field">
+    <%= form.label :journal_days %>
+    <%= form.number_field :journal_days %>
+  </div>
+
+  <div class="field">
+    <%= form.label :winning_consumption_days %>
+    <%= form.number_field :winning_consumption_days %>
+  </div>
+
+  <div class="field">
+    <%= form.label :no_alcohol_days %>
+    <%= form.number_field :no_alcohol_days %>
+  </div>
+
+  <div class="field">
+    <%= form.label :exercise_days %>
+    <%= form.number_field :exercise_days %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_sleep_hours %>
+    <%= form.text_field :total_sleep_hours %>
+  </div>
+
+  <div class="field">
+    <%= form.label :shower_days %>
+    <%= form.number_field :shower_days %>
+  </div>
+
+  <div class="field">
+    <%= form.label :am_brush_days %>
+    <%= form.number_field :am_brush_days %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pm_brush_days %>
+    <%= form.number_field :pm_brush_days %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
