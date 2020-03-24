@@ -40,8 +40,8 @@ class DashboardsController < ApplicationController
     @today = Date.today
     @yesterday = @today - 1
 
-    # create habits
-    Habits.create_todays_habits
+    # create outstanding habits
+    Habits.create_outstanding_habits
 
     # today's checks
     @todays_consumption = Consumption.winning_day(Date.today)
