@@ -1,0 +1,30 @@
+<% if weekly_datum.shower_days >= WeeklyDatum.all.pluck(:shower_days).max %>
+  <td class="center-text pers-best-cell">
+  	<%= weekly_datum.shower_days %>
+  	 | <%= (weekly_datum.shower_days/7.0*100.0).round(0) %>% | 
+  	<% unless weekly_data[i+1] == nil %>
+      <% @weekly_delta = weekly_datum.shower_days - weekly_data[i+1].shower_days %>
+      <% if @weekly_delta == 0 %>
+        --
+      <% elsif @weekly_delta > 0 %>
+        +<%= @weekly_delta %>
+      <% else %>
+        <%= @weekly_delta %>
+      <% end %>
+    <% end %>
+<% else %>
+  <td class="center-text">
+  	<%= weekly_datum.shower_days %>
+  	 | <%= (weekly_datum.shower_days/7.0*100.0).round(0) %>% | 
+  	 <% unless weekly_data[i+1] == nil %>
+      <% @weekly_delta = weekly_datum.shower_days - weekly_data[i+1].shower_days %>
+      <% if @weekly_delta == 0 %>
+        --
+      <% elsif @weekly_delta > 0 %>
+        +<%= @weekly_delta %>
+      <% else %>
+        <%= @weekly_delta %>
+      <% end %>
+    <% end %>
+<% end %>
+	</td>

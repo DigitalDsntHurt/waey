@@ -1,0 +1,30 @@
+<% if weekly_datum.winning_consumption_days >= WeeklyDatum.all.pluck(:winning_consumption_days).max %>
+  <td class="center-text pers-best-cell">
+  	<%= weekly_datum.winning_consumption_days %>
+  	 | <%= (weekly_datum.winning_consumption_days/7.0*100.0).round(0) %>% | 
+  	<% unless weekly_data[i+1] == nil %>
+      <% @weekly_delta = weekly_datum.winning_consumption_days - weekly_data[i+1].winning_consumption_days %>
+      <% if @weekly_delta == 0 %>
+        --
+      <% elsif @weekly_delta > 0 %>
+        +<%= @weekly_delta %>
+      <% else %>
+        <%= @weekly_delta %>
+      <% end %>
+    <% end %>
+<% else %>
+  <td class="center-text">
+  	<%= weekly_datum.winning_consumption_days %>
+  	 | <%= (weekly_datum.winning_consumption_days/7.0*100.0).round(0) %>% | 
+  	 <% unless weekly_data[i+1] == nil %>
+      <% @weekly_delta = weekly_datum.winning_consumption_days - weekly_data[i+1].winning_consumption_days %>
+      <% if @weekly_delta == 0 %>
+        --
+      <% elsif @weekly_delta > 0 %>
+        +<%= @weekly_delta %>
+      <% else %>
+        <%= @weekly_delta %>
+      <% end %>
+    <% end %>
+<% end %>
+	</td>

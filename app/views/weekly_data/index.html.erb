@@ -5,32 +5,33 @@
 <table class="index-table">
   <thead>
     <tr>
-      <td class="center-text">Week of</th>
-      <td class="center-text">Meditation days</th>
-      <td class="center-text">Journal days</th>
-      <td class="center-text">Winning consumption days</th>
-      <td class="center-text">No alcohol days</th>
-      <td class="center-text">Exercise days</th>
-      <td class="center-text">Total sleep hours</th>
-      <td class="center-text">Shower days</th>
-      <td class="center-text">Am brush days</th>
-      <td class="center-text">Pm brush days</th>
+      <td class="center-text">week of</th>
+      <td class="center-text">meditation days</th>
+      <td class="center-text">journal days</th>
+      <td class="center-text">consumption win days</th>
+      <td class="center-text">exercise days</th>
+      <td class="center-text">total sleep hours</th>
+      <td class="center-text">no alcohol days</th>
+      <td class="center-text">shower days</th>
+      <td class="center-text">am brush days</th>
+      <td class="center-text">pm brush days</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @weekly_data.each do |weekly_datum| %>
+    <% @weekly_data.each_with_index do |weekly_datum,i| %>
       <tr>
         <td class="center-text"><%= link_to weekly_datum.week_of, weekly_datum %></td>
-        <td class="center-text"><%= weekly_datum.meditation_days %></td>
-        <td class="center-text"><%= weekly_datum.journal_days %></td>
-        <td class="center-text"><%= weekly_datum.winning_consumption_days %></td>
-        <td class="center-text"><%= weekly_datum.no_alcohol_days %></td>
-        <td class="center-text"><%= weekly_datum.exercise_days %></td>
-        <td class="center-text"><%= weekly_datum.total_sleep_hours %></td>
-        <td class="center-text"><%= weekly_datum.shower_days %></td>
-        <td class="center-text"><%= weekly_datum.am_brush_days %></td>
-        <td class="center-text"><%= weekly_datum.pm_brush_days %></td>
+        <%= render partial: 'weekly_data/partials/meditation_days_cells', locals: {weekly_datum: weekly_datum, weekly_data: @weekly_data, i: i} %>
+        <%= render partial: 'weekly_data/partials/journal_days_cells', locals: {weekly_datum: weekly_datum, weekly_data: @weekly_data, i: i} %>
+        <%= render partial: 'weekly_data/partials/consumption_days_cells', locals: {weekly_datum: weekly_datum, weekly_data: @weekly_data, i: i} %>
+        <%= render partial: 'weekly_data/partials/exercise_days_cells', locals: {weekly_datum: weekly_datum, weekly_data: @weekly_data, i: i} %>
+        <%= render partial: 'weekly_data/partials/sleep_days_cells', locals: {weekly_datum: weekly_datum, weekly_data: @weekly_data, i: i} %>
+        
+        <%= render partial: 'weekly_data/partials/alcohol_days_cells', locals: {weekly_datum: weekly_datum, weekly_data: @weekly_data, i: i} %>
+        <%= render partial: 'weekly_data/partials/shower_days_cells', locals: {weekly_datum: weekly_datum, weekly_data: @weekly_data, i: i} %>
+        <%= render partial: 'weekly_data/partials/ambrush_days_cells', locals: {weekly_datum: weekly_datum, weekly_data: @weekly_data, i: i} %>
+        <%= render partial: 'weekly_data/partials/pmbrush_days_cells', locals: {weekly_datum: weekly_datum, weekly_data: @weekly_data, i: i} %>
       </tr>
     <% end %>
   </tbody>

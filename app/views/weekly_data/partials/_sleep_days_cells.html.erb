@@ -1,0 +1,30 @@
+<% if weekly_datum.total_sleep_hours >= WeeklyDatum.all.pluck(:total_sleep_hours).max %>
+  <td class="center-text pers-best-cell">
+  	<%= weekly_datum.total_sleep_hours %>
+  	 | <%= (weekly_datum.total_sleep_hours/51.0*100.0).round(0) %>% | 
+  	<% unless weekly_data[i+1] == nil %>
+      <% @weekly_delta = (weekly_datum.total_sleep_hours - weekly_data[i+1].total_sleep_hours).round(0) %>
+      <% if @weekly_delta == 0 %>
+        --
+      <% elsif @weekly_delta > 0 %>
+        +<%= @weekly_delta %>
+      <% else %>
+        <%= @weekly_delta %>
+      <% end %>
+    <% end %>
+<% else %>
+  <td class="center-text">
+  	<%= weekly_datum.total_sleep_hours %>
+  	 | <%= (weekly_datum.total_sleep_hours/51.0*100.0).round(0) %>% | 
+  	 <% unless weekly_data[i+1] == nil %>
+      <% @weekly_delta = (weekly_datum.total_sleep_hours - weekly_data[i+1].total_sleep_hours).round(0) %>
+      <% if @weekly_delta == 0 %>
+        --
+      <% elsif @weekly_delta > 0 %>
+        +<%= @weekly_delta %>
+      <% else %>
+        <%= @weekly_delta %>
+      <% end %>
+    <% end %>
+<% end %>
+	</td>
