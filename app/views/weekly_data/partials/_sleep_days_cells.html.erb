@@ -12,6 +12,20 @@
         <%= @weekly_delta %>
       <% end %>
     <% end %>
+<% elsif weekly_datum.total_sleep_hours <= WeeklyDatum.all.where.not(week_of: AppTime.this_monday).pluck(:total_sleep_hours).min %>
+  <td class="center-text pers-worst-cell">
+    <%= weekly_datum.total_sleep_hours %>
+     | <%= (weekly_datum.total_sleep_hours/51.0*100.0).round(0) %>% | 
+    <% unless weekly_data[i+1] == nil %>
+      <% @weekly_delta = (weekly_datum.total_sleep_hours - weekly_data[i+1].total_sleep_hours).round(0) %>
+      <% if @weekly_delta == 0 %>
+        --
+      <% elsif @weekly_delta > 0 %>
+        +<%= @weekly_delta %>
+      <% else %>
+        <%= @weekly_delta %>
+      <% end %>
+    <% end %>  
 <% else %>
   <td class="center-text">
   	<%= weekly_datum.total_sleep_hours %>

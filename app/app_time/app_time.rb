@@ -32,4 +32,12 @@ class AppTime
     return @week_start_dates_array
   end
 
+  def self.this_monday
+    @today = Date.today
+    until @today.monday?
+      @today -= 1
+    end
+
+    return @today
+  end
 end

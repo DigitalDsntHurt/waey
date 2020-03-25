@@ -12,6 +12,20 @@
         <%= @weekly_delta %>
       <% end %>
     <% end %>
+<% elsif weekly_datum.no_alcohol_days <= WeeklyDatum.all.where.not(week_of: AppTime.this_monday).pluck(:no_alcohol_days).min %>
+  <td class="center-text pers-worst-cell">
+  	<%= weekly_datum.no_alcohol_days %>
+  	 | <%= (weekly_datum.no_alcohol_days/7.0*100.0).round(0) %>% | 
+  	<% unless weekly_data[i+1] == nil %>
+      <% @weekly_delta = weekly_datum.no_alcohol_days - weekly_data[i+1].no_alcohol_days %>
+      <% if @weekly_delta == 0 %>
+        --
+      <% elsif @weekly_delta > 0 %>
+        +<%= @weekly_delta %>
+      <% else %>
+        <%= @weekly_delta %>
+      <% end %>
+    <% end %>
 <% else %>
   <td class="center-text">
   	<%= weekly_datum.no_alcohol_days %>
