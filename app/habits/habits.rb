@@ -65,6 +65,28 @@ class Habits
     return @dates
   end
 
+  def self.check_missing_sleep_days
+    @dates = []
+    AppTime.full_db_daterange.each{|date|
+      if Sleep.where(date: date).count < 1
+        @dates << date
+      end
+    }
+
+    return @dates
+  end
+
+  def self.check_missing_hrv_days
+    @dates = []
+    AppTime.full_db_daterange.each{|date|
+      if Hrv.where(date: date).count < 1
+        @dates << date
+      end
+    }
+
+    return @dates
+  end
+
   def self.create_outstanding_habits
     ## Dailies
     check_missing_habits.each{|hsh|
@@ -83,6 +105,16 @@ class Habits
     ## Consumption
     check_missing_consumption_days.each{|date|
       Consumption.create(date: date, description: "untracked", feeling_score: 0, win: false)
+    }
+
+    ## Sleep
+    check_missing_sleep_days.each{|date|
+      Sleep.create(date: date, hrs: 0, mins: 0)
+    }
+
+    ## HRV
+    check_missing_hrv_days.each{|date|
+      Hrv.create(date: date, hrv: 0)
     }
   end
 end

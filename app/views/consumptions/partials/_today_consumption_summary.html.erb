@@ -13,7 +13,7 @@
 			<% Consumption.todays_consumption_records.each{|consumption| %>
 				<tr>
 					<td>
-						<%= consumption.description %>	
+						<%= link_to consumption.description, consumption %>	
 					</td>
 					<td>
 						<%= consumption.win %>	

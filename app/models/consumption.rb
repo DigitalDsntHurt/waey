@@ -7,6 +7,7 @@ class Consumption < ApplicationRecord
 
   
   after_validation :downcase_description
+  after_create :kill_untracked_record
 
 ##                        ##
 ## ##                  ## ##
@@ -134,5 +135,9 @@ class Consumption < ApplicationRecord
 
     def downcase_description
       self.description = self.description.downcase
+    end
+
+    def kill_untracked_record
+      Consumption.where(date: self.date).where(description: "untracked").delete_all
     end
 end
