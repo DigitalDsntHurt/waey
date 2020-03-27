@@ -138,6 +138,10 @@ class Consumption < ApplicationRecord
     end
 
     def kill_untracked_record
-      Consumption.where(date: self.date).where(description: "untracked").delete_all
+      @day_query = Consumption.where(date: self.date)
+      @untracked_query = @day_query.where(description: "untracked")
+      if @day_query.count > 1 and @untracked_query.count > 0
+        @untracked_query.delete_all
+      end
     end
 end
