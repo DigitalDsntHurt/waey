@@ -120,10 +120,21 @@ class Consumption < ApplicationRecord
 
     def self.winning_days(startdate,enddate)
       summarize_days_to_wins_and_losses(Consumption.where('date >= ? and date <= ?', startdate, enddate)).select{|date,bool| bool == true }.count
-
-      # return @day_groups
     end
 
+    def self.consumption_review_stats(startdate,enddate)
+      @query = summarize_days_to_wins_and_losses(Consumption.where('date >= ? and date <= ?', startdate, enddate)).select{|date,bool| bool == true }
+      @total_days = (enddate.to_date - startdate.to_date).to_i+1
+      @winning_days = @query.count
+
+      @hsh = {}
+      @hsh[:total_days] = @total_days
+      @hsh[:winning_days] = @winning_days
+      @hsh[:percent_completed] = (@winning_days.to_f / @total_days.to_f * 100.0).round(0)
+      @hsh[:avg_days_per_wk] =  (@winning_days / (@total_days / 7.0)).round(0)
+      
+      return @hsh
+    end
 
     private
 

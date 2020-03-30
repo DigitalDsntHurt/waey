@@ -164,3 +164,22 @@ a.dropdown-item:visited{
 	background-color: red;
 	color: #000;
 }
+
+
+.spacer{
+	font-size: 0; 
+    height: 200px;
+    line-height: 0;
+}
+
+
+
+
+.review-table{
+	margin: auto;
+
+	td{
+		padding: 0px 22px;
+		text-align: center;
+	}
+}

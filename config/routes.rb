@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :sleeps
   
 
+  get 'review/range_form'
+  post 'review/range_form'
+  get 'review/range_report'
   get 'review/this_year_to_date'
   get 'review/this_week'
   get 'review/last_week'

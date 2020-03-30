@@ -78,6 +78,21 @@ class Exercise < ApplicationRecord
     Exercise.where("date >= ? and date <= ?", startdate, enddate).where('total_minutes > ?', 0).count
   end
 
+  def self.exercise_review_stats(startdate,enddate)
+    @total_days = (enddate.to_date - startdate.to_date).to_i+1
+    @query = Exercise.where("date >= ? and date <= ?", startdate, enddate)
+    @exercise_days = @query.where('total_minutes > ?', 0).count
+    
+    
+    @hsh = {}
+    @hsh[:total_days] = @total_days
+    @hsh[:exercise_days] = @exercise_days
+    @hsh[:day_percent] = (@exercise_days.to_f / @total_days.to_f * 100.0).round(0)
+    @hsh[:avg_mins_per_day] = @query.pluck(:total_minutes).inject{|mins,sum| mins + sum } / @query.count
+
+    return @hsh
+  end
+
 
 private
 
