@@ -47,6 +47,10 @@ class Sleep < ApplicationRecord
       return @total_hrs.round(2)
     end
   end
+  
+  def self.hrs_per_day(startdate,enddate)
+    Sleep.where('date >= ? and date <= ?', startdate, enddate).map{|record| [record.date, record.total_hrs] }
+  end
 
   private
 
@@ -57,4 +61,15 @@ class Sleep < ApplicationRecord
   def calculate_total_mins
     self.total_mins = (total_hrs * 60.0).round(2) unless self.total_hrs == nil
   end
+
+  def self.sleep_review_stats(startdate,enddate)
+    @query = Sleep.where('date >= ? and date <= ?', startdate, enddate)
+
+    @hsh = {}
+    @hsh[:avg_hrs_per_night] = (@query.pluck(:total_hrs).inject{|hrs,sum| hrs + sum } / @query.count).round(2)
+
+    return @hsh
+  end
+
+
 end

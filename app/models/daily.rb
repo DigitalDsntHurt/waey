@@ -59,6 +59,20 @@ validates :habit, presence: true
     Daily.where(habit: habit).where('date >= ? and date <= ?', start_date, end_date).select{|record| record.done == true}.count
   end
 
+  def self.habit_review_stats(habit,start_date,end_date)
+    @query = Daily.where(habit: habit).where('date >= ? and date <= ?', start_date, end_date).select{|record| record.done == true}
+    @total_days = (end_date.to_date - start_date.to_date).to_i+1
+    @completed_days = @query.count
+
+    @hsh = {}
+    @hsh[:total_days] = @total_days
+    @hsh[:completed_days] = @completed_days
+    @hsh[:percent_completed] = (@completed_days.to_f / @total_days.to_f * 100.0).round(0)
+    @hsh[:avg_days_per_wk] =  (@completed_days / (@total_days / 7.0)).round(0)
+    
+    return @hsh
+  end
+
 private
 
 

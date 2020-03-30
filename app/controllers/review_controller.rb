@@ -1,4 +1,28 @@
 class ReviewController < ApplicationController
+  
+  def range_form
+    if params[:commit] == "submit"
+      # format.html { redirect_back fallback_location: review_range_path, notice: "hey" }
+      @start_date = params[:start_date]
+      @end_date = params[:end_date]
+      redirect_to review_range_report_path(start_date: @start_date, end_date: @end_date)
+    end
+  end
+
+  def range_report
+    @start_date = params[:start_date].to_date.strftime("%a %d %b %Y")
+    @end_date = params[:end_date].to_date.strftime("%a %d %b %Y")
+
+    @meditation = Daily.habit_review_stats("meditate",@start_date,@end_date)
+    @journal = Daily.habit_review_stats("journal",@start_date,@end_date)
+    @visualize = Daily.habit_review_stats("visualize success",@start_date,@end_date)
+      
+    @consumption = Consumption.consumption_review_stats(@start_date,@end_date)
+    @alcohol = Daily.habit_review_stats("no alcohol",@start_date,@end_date)
+    @exercise = Exercise.exercise_review_stats(@start_date,@end_date)
+    @sleep = Sleep.sleep_review_stats(@start_date,@end_date)
+  end
+
   def this_week
   end
 
@@ -42,6 +66,8 @@ class ReviewController < ApplicationController
   end
 
   def this_year_to_date
+    @sleep_hrs_per_day = Sleep.hrs_per_day(Date.today - 90, Date.today)
+
     @chart_data = Exercise.year_to_date_minutes_per_day
 
     @exercise = Exercise.review_totals

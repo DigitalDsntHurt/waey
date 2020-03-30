@@ -1,23 +1,118 @@
 <h1 class="page-title">Year to Date Review</h1>
 
-<%= @chart_data %>
 
-<div class="dash-section">
-	<h2 class="section-title">Exercise</h2>
+<div class="sleep"></div>
 
-	<br>
-	<div class="exercise-chart"></div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<h5 class="section-sub-title">
-		Exercised <%= @exercise[:exercise_days] %> of <%= @exercise[:total_days] %> days = <%= @exercise[:day_percent] %>%
+
+
+
+
+<% if false %>
+
+	<%= @chart_data %>
+
+	<div class="dash-section">
+		<h2 class="section-title">Exercise</h2>
+
 		<br>
-		<%= @exercise[:avg_mins_per_day] %> avg mins per day = <%= @exercise[:avg_mins_per_day_percent] %>% of 60 mins per day goal
+		<div class="exercise-chart"></div>
 		<br>
-		<%= @exercise[:total_minutes] %> total weekly mins = <%= @exercise[:total_minutes_percent] %>% of 420 total weekly mins goal
-	</h5>
-</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<h5 class="section-sub-title">
+			Exercised <%= @exercise[:exercise_days] %> of <%= @exercise[:total_days] %> days = <%= @exercise[:day_percent] %>%
+			<br>
+			<%= @exercise[:avg_mins_per_day] %> avg mins per day = <%= @exercise[:avg_mins_per_day_percent] %>% of 60 mins per day goal
+			<br>
+			<%= @exercise[:total_minutes] %> total weekly mins = <%= @exercise[:total_minutes_percent] %>% of 420 total weekly mins goal
+		</h5>
+	</div>
+<% end %>	
+
+
+<script>
+	var dates = <%= @sleep_hrs_per_day.map{|date,hrs| date.to_s }.to_json %>;
+	var hours = <%= @sleep_hrs_per_day.map{|date,hrs| hrs } %>;
+	var height = 400
+	var width = 700
+	var barWidth = width / hours.length
+	var margin = { left: 50, top: 10, right: 50, bottom: 30 }
+
+	var getRatio = side => (margin[side] / width) * 100 + '%'
+
+	var marginRatio = {
+	  left: getRatio('left'),
+	  top: getRatio('top'),
+	  right: getRatio('right'),
+	  bottom: getRatio('bottom')
+	}
+
+	var svg = d3
+	  .select('.sleep')
+	  .append('svg')
+	  .style(
+	    'padding',
+	    marginRatio.top +
+	      ' ' +
+	      marginRatio.right +
+	      ' ' +
+	      marginRatio.bottom +
+	      ' ' +
+	      marginRatio.left +
+	      ' '
+	  )
+	  .attr('preserveAspectRatio', 'xMinYMin meet')
+	  .attr(
+	    'viewBox',
+	    '0 0 ' +
+	      (width + margin.left + margin.right) +
+	      ' ' +
+	      (height + margin.top + margin.bottom)
+	  )
+
+	var x = d3.scale
+	  .ordinal()
+	  .domain(dates)
+	  .rangeRoundBands([0, width], 0.1, 0.1)
+
+	var xAxis = d3.svg
+	  .axis()
+	  .scale(x)
+	  .orient('bottom')
+
+	var y = d3.scale
+	  .linear()
+	  .domain([d3.max(hours), 0])
+	  .range([0, height])
+
+	var yAxis = d3.svg
+	  .axis()
+	  .scale(y)
+	  .orient('left')
+
+	var bar = svg
+	  .selectAll('g')
+	  .data(hours)
+	  .enter()
+	  .append('g')
+	  .attr('transform', (_, i) => 'translate(' + i * barWidth + ', 0)')
+
+	svg
+	  .append('g')
+	  .attr('class', 'x axis')
+	  .call(xAxis)
+	  .attr('transform', 'translate(0,' + height + ')')
+	svg
+	  .append('g')
+	  .attr('class', 'y axis')
+	  .call(yAxis)
+	bar
+	  .append('rect')
+	  .attr('class', 'bar')
+	  .attr('width', barWidth - 1)
+	  .attr('y', d => y(d))
+	  .attr('height', d => height - y(d))
+</script>

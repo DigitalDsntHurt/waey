@@ -1,0 +1,59 @@
+<h1 class="page-title">Review</h1>
+<h2 class="page-title" style="margin-bottom: 5vh;"><%= @start_date %> - <%= @end_date %></h2>
+
+<table class="review-table">
+	<thead>
+		<th colspan="3">
+			<h3 class="page-title">Spiritual Health</h3>
+		</th>
+	</thead>
+	<tr>
+		<td>
+			<h3 class="page-title">Meditation</h3>
+			<%= @meditation[:completed_days] %> of <%= @meditation[:total_days] %> days (<%= @meditation[:percent_completed] %>%)
+			<br> <%= @meditation[:avg_days_per_wk] %> avg days per week
+		</td>
+		<td>
+			<h3 class="page-title">Journal</h3>
+			<%= @journal[:completed_days] %> of <%= @journal[:total_days] %> days (<%= @journal[:percent_completed] %>%)
+			<br> <%= @journal[:avg_days_per_wk] %> avg days per week
+		</td>
+		<td>
+			<h3 class="page-title">Visualization</h3>
+			<%= @visualize[:completed_days] %> of <%= @visualize[:total_days] %> days (<%= @visualize[:percent_completed] %>%)
+			<br> <%= @visualize[:avg_days_per_wk] %> avg days per week
+		</td>
+	</tr>
+</table>
+
+<hr style="border: dotted 1px black; margin-top: 22px; margin-bottom: 22px;">
+
+<table class="review-table">
+	<thead>
+		<th colspan="4">
+			<h3 class="page-title">Physical Health</h3>
+		</th>
+	</thead>
+	<tr>
+		<td>
+			<h3 class="page-title">Consumption</h3>
+			<%= @consumption[:winning_days] %> of <%= @consumption[:total_days] %> days (<%= @consumption[:percent_completed] %>%)
+			<br> <%= @consumption[:avg_days_per_wk] %> avg days per week
+		</td>
+		<td>
+			<h3 class="page-title">No Alcohol</h3>
+			<%= @alcohol[:completed_days] %> of <%= @alcohol[:total_days] %> days (<%= @alcohol[:percent_completed] %>%)
+			<br> <%= @alcohol[:avg_days_per_wk] %> avg days per week
+		</td>
+		<td>
+			<h3 class="page-title">Sleep</h3>
+			<%= @sleep[:avg_hrs_per_night] %> avg hrs per night
+		</td>
+		<td>
+			<h3 class="page-title">Exercise</h3>
+			<%= @exercise[:exercise_days] %> of <%= @exercise[:total_days] %> days (<%= @exercise[:day_percent] %>%)
+			<br><%= @exercise[:avg_mins_per_day] %> avg mins per day
+		</td>
+		
+	</tr>
+</table>
