@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Journal Entries</h1>
+
+<% @journal_entries.each do |journal_entry| %>
+  <h2>
+    <%= journal_entry.prompt.content %>
+  </h2>
+  <p style="padding-bottom: 22px; margin-bottom: 22px; border-bottom: solid 1px black;">
+    <%= journal_entry.content %>
+  </p>
+<% end %>
+
+<hr>
+<h1>default</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Prompt</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @journal_entries.each do |journal_entry| %>
+      <tr>
+        <td><%= journal_entry.prompt.content %></td>
+        <td><%= journal_entry.content %></td>
+        <td><%= link_to 'Show', journal_entry %></td>
+        <td><%= link_to 'Edit', edit_journal_entry_path(journal_entry) %></td>
+        <td><%= link_to 'Destroy', journal_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Journal Entry', new_journal_entry_path %>

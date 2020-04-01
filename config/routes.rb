@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :prompts
+  resources :journal_entries
   resources :weekly_data
   resources :hrvs
   resources :sleeps
