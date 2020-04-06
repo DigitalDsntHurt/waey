@@ -1,28 +1,22 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="/">waey</a>
+  <a class="navbar-brand" href="/journal_entries/home">journal</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="/consumptions">Consumption</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/exercises">Exercise</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/dailies">Habits</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/sleeps">Sleep</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/hrvs">HRV</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/dailies/alcohol_index">Alcohol</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Habits
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/consumptions">Consumption</a>
+          <a class="dropdown-item" href="/exercises">Exercise</a>
+          <a class="dropdown-item" href="/sleeps">Sleep</a>
+          <a class="dropdown-item" href="/hrvs">Hrv</a>
+          <a class="dropdown-item" href="/dailies">Dailies</a>
+        </div>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -31,28 +25,24 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/review/range_form">Date Range</a>
           <a class="dropdown-item" href="/weekly_data">Weekly Data</a>
-          <a class="dropdown-item" href="/review/this_week">This Week</a>
           <a class="dropdown-item" href="/review/last_week">Last Week</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/review/this_week">This Week</a>
           <a class="dropdown-item" href="/review/trailing_seven_days">Trailing 7-day</a>
           <a class="dropdown-item" href="/review/this_year_to_date">Year to Date</a>
         </div>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dashboards
+          Dashboards & Dump
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/consumptions/summaries">Consumption Summaries</a>
-          <a class="dropdown-item" href="/dailies/alcohol_summary">Alcohol</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="/dailies/alcohol_summary">Alcohol</a>
+          <a class="dropdown-item" href="/dailies/alcohol_index">Alcohol</a>
         </div>
       </li>
     </ul>
   </div>
-
-  <a class="navbar-brand" href="/journal_entries">journal</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 </nav>

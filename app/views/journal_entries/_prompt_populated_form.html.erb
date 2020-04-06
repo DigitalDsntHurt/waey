@@ -11,14 +11,9 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :prompt_id %>
-    <%= form.number_field :prompt_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :prompt_id %>
-    <%= form.select :prompt_id, Prompt.all.collect{|prompt| [prompt.content,prompt.id]} %>
+    <%= form.select :prompt_id, Prompt.all.collect{|prompt| [prompt.content,prompt.id]}, selected: prompt.id, class: "form-control" %>
   </div>
 
   <div class="field">

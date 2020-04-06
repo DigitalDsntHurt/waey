@@ -183,3 +183,63 @@ a.dropdown-item:visited{
 		text-align: center;
 	}
 }
+
+
+/* JOURNAL STYLES*/
+
+.journal-entry-show-prompt{
+	max-width: 60vw;
+	margin-left: 6vw;
+	text-align: center;
+}
+
+.trix-content{
+	max-width: 60vw;
+	margin-left: 6vw;
+
+	h1:first-of-type{
+		@extend .h2;
+		text-align: center;
+		margin-bottom: 1vh;
+	}
+}
+
+.button-index-container{
+	max-width: 40vw;
+	border: dotted 1px black;
+	margin: auto;
+	padding: 1vh 1vw 1vh 1vw;
+	text-align: center;
+	.btn{
+		/*display: block;*/
+		margin: 2px 0px;
+	}
+}
+
+.right-aligned-btn{
+	padding: 1vh 0 0 0;
+	text-align: right;
+}
+
+.new-prompt-form-container{
+	width: 80vw;
+	margin: 0 15vw 0 5vw;
+	padding: 2vh 2vw;
+	table{
+		width: 100%;
+	}
+}
+
+.new-entry-form-container{
+	width: 80vw;
+	margin: 0 15vw 0 5vw;
+	padding: 2vh 2vw;
+	border: dotted 1px black;
+	.trix-button-row{
+		max-width: 60%;
+	}
+	#journal_entry_content{
+		min-width: 100%;
+		margin-left: 0;
+	}
+}

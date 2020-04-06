@@ -7,6 +7,11 @@ class PromptsController < ApplicationController
     @prompts = Prompt.all
   end
 
+  def button_index
+    @prompt_groups = JournalEntry.all.order(:updated_at).pluck(:prompt_id).reverse.uniq.in_groups_of(6)
+    @prompts = JournalEntry.all.order(:updated_at).pluck(:prompt_id).reverse
+  end
+
   # GET /prompts/1
   # GET /prompts/1.json
   def show

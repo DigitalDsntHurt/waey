@@ -1,9 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Content:</strong>
+<h1 class="journal-entry-show-prompt page-title">
   <%= @prompt.content %>
-</p>
+</h1>
+
+<h2 class="journal-entry-show-prompt page-title">New Post</h2>
+<%= render partial: 'journal_entries/prompt_populated_form', locals: {journal_entry: JournalEntry.new, prompt: @prompt} %>
+
+<h2 class="journal-entry-show-prompt page-title">Previous Posts</h2>
+
+<% JournalEntry.where(prompt_id: @prompt.id).order(updated_at: :desc).each{|entry| %>
+	<%= entry.updated_at %><br>
+	<%= entry.content %><br>
+	<hr>
+<% } %>
 
 <%= link_to 'Edit', edit_prompt_path(@prompt) %> |
 <%= link_to 'Back', prompts_path %>

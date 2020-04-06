@@ -1,10 +1,15 @@
 class JournalEntriesController < ApplicationController
   before_action :set_journal_entry, only: [:show, :edit, :update, :destroy]
 
+  def home
+    @journal_entries = JournalEntry.all
+    @prompts = @journal_entries.order(:updated_at).pluck(:prompt_id).reverse
+  end
   # GET /journal_entries
   # GET /journal_entries.json
   def index
     @journal_entries = JournalEntry.all
+    @prompts = @journal_entries.order(:updated_at).pluck(:prompt_id).reverse
   end
 
   # GET /journal_entries/1
@@ -28,7 +33,7 @@ class JournalEntriesController < ApplicationController
 
     respond_to do |format|
       if @journal_entry.save
-        format.html { redirect_to @journal_entry, notice: 'Journal entry was successfully created.' }
+        format.html { redirect_back fallback_location: "/journal_entries/home", notice: 'Journal entry was successfully created.' }
         format.json { render :show, status: :created, location: @journal_entry }
       else
         format.html { render :new }

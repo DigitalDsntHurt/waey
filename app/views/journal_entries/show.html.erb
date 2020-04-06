@@ -1,12 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Prompt:</strong>
-  <%= @journal_entry.prompt_id %>
-</p>
+<h1 class="journal-entry-show-prompt page-title">
+  <%= link_to @journal_entry.prompt.content, @journal_entry.prompt %>
+</h1>
 
 <p>
-  <strong>Content:</strong>
   <%= @journal_entry.content %>
 </p>
 
