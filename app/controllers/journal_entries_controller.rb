@@ -3,7 +3,7 @@ class JournalEntriesController < ApplicationController
 
   def home
     @journal_entries = JournalEntry.all
-    @prompts = @journal_entries.order(:updated_at).pluck(:prompt_id).reverse
+    @prompts = @journal_entries.order(:updated_at).pluck(:prompt_id).reverse.uniq
   end
   # GET /journal_entries
   # GET /journal_entries.json

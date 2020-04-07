@@ -204,18 +204,6 @@ a.dropdown-item:visited{
 	}
 }
 
-.button-index-container{
-	max-width: 40vw;
-	border: dotted 1px black;
-	margin: auto;
-	padding: 1vh 1vw 1vh 1vw;
-	text-align: center;
-	.btn{
-		/*display: block;*/
-		margin: 2px 0px;
-	}
-}
-
 .right-aligned-btn{
 	padding: 1vh 0 0 0;
 	text-align: right;
@@ -230,16 +218,50 @@ a.dropdown-item:visited{
 	}
 }
 
+.button-index-container{
+	border: dotted 1px black;
+	padding: 1vh 1vw 1vh 1vw;
+	text-align: center;
+	.btn{
+		margin: 2px 0px;
+	}
+}
+
 .new-entry-form-container{
-	width: 80vw;
-	margin: 0 15vw 0 5vw;
-	padding: 2vh 2vw;
+	/*width: 100%;*/
+	/*margin: 0 15vw 0 5vw;*/
+	padding: 1vh 1vw;
 	border: dotted 1px black;
 	.trix-button-row{
-		max-width: 60%;
+		/*max-width: 60%;*/
 	}
 	#journal_entry_content{
 		min-width: 100%;
 		margin-left: 0;
 	}
 }
+
+.new-post-form-container{
+	width: 90vw;
+	/*margin: 0 37vw 0 3vw ;*/
+}
+
+.posts-feed-container{
+	width: 80vw;
+	/*margin: 0 37vw 0 3vw ;*/
+}
+
+.post-feed-container{
+	border: solid 1px #333333;
+	border-radius: 8px;
+	margin: 2vh 0 1vh 0;
+	padding: 1vh 1vw;
+}
+
+
+trix-editor {
+		/*height: 20vh;*/
+		/*max-height: 80vh;*/
+		min-height: 25vh;
+	  	overflow-y: auto;
+	}

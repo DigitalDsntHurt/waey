@@ -1,35 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<h1 class="page-title">Journal Home<br>
-</h1>
+<h1 class="page-title">Journal Home</h1>
 
-<div class="button-index-container">
-  <h4 align="center">Recent Prompts</h4>
-  <% @prompts.each{|prompt_id| %>
-    <% prompt = Prompt.where(id: prompt_id)[0] %>
-    <%= link_to prompt.content, prompt, class: "btn btn-success btn-md" %>
-  <% } %>
-
-  <div class="right-aligned-btn">
-    <%= link_to "new prompt", new_prompt_path, class: "btn btn-primary btn-md" %>
-  </div>
+<div class="container-fluid" style="margin-bottom: 44px;">
+    <div class="row">
+      <div class="col-lg button-index-container">
+        <h4 align="center">Recent Prompts</h4>
+        <% @prompts.each{|prompt_id| %>
+          <% prompt = Prompt.where(id: prompt_id)[0] %>
+          <%= link_to prompt.content, prompt, class: "btn btn-success btn-md" %>
+        <% } %>
+        <div class="right-aligned-btn">
+          <%= link_to "new prompt", new_prompt_path, class: "btn btn-primary btn-md" %>
+        </div>
+      </div>
+      <div class="col-lg new-entry-form-container">
+        <%= render partial: '/journal_entries/mini_form', locals: {journal_entry: JournalEntry.new} %>
+      </div>
+    </div>
 </div>
 
-<div class="new-prompt-form-container">
-  <%= render partial: '/prompts/form', locals: {prompt: Prompt.new} %>
+<h1 class="page-title">Entries</h1>
+<div class="posts-feed-container">
+  <% @journal_entries.reverse.each do |journal_entry| %>
+    <div class="post-feed-container">
+    <h2 style="margin-left:20vw;"><%= link_to journal_entry.prompt.content, journal_entry.prompt %></h2>
+      <%= journal_entry.content %>
+    </div>
+  <% end %>
 </div>
-
-<div class="new-entry-form-container">
-  <%= render partial: '/journal_entries/mini_form', locals: {journal_entry: JournalEntry.new} %>
-</div>
-
-<br><br><br><hr><br><br><br>
-<h1 class="page-title">All Entries</h1>
-<% @journal_entries.reverse.each do |journal_entry| %>
-  <h2 style="padding-bottom: 22px; margin-bottom: 22px; margin-top: 22px; border-top: solid 1px black;">
-    <%= link_to journal_entry.prompt.content, journal_entry.prompt %>
-  </h2>
-  <p style="">
-    <%= journal_entry.content %>
-  </p>
-<% end %>
