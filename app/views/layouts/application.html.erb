@@ -15,7 +15,12 @@
   </head>
 
   <body>
-    <%= render partial: 'layouts/navbar' %>
+    <% if controller.controller_name == 'journal_entries' or controller.controller_name == 'prompts' %>
+      <%= render partial: 'layouts/journal_navbar' %>
+    <% else %>
+      <%= render partial: 'layouts/waey_navbar' %>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="journal-entry-show-prompt page-title">
+  <%= link_to @journal_entry.prompt.content, @journal_entry.prompt %>
+</h1>
+
+<p>
+  <%= @journal_entry.content %>
+</p>
+
+<%= link_to 'Edit', edit_journal_entry_path(@journal_entry) %> |
+<%= link_to 'Back', journal_entries_path %>

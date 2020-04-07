@@ -1,0 +1,12 @@
+<h1 class="page-title">Button Index</h1>
+
+<div class="button-index-container">
+	<% @prompts.each{|prompt_id| %>
+		<% prompt = Prompt.where(id: prompt_id)[0] %>
+		<%= link_to prompt.content, prompt, class: "btn btn-success btn-md" %>
+	<% } %>
+
+    <div class="right-aligned-btn">
+      <%= link_to "new prompt", new_prompt_path, class: "btn btn-primary btn-md" %>
+    </div>
+</div>

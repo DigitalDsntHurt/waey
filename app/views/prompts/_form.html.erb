@@ -1,0 +1,28 @@
+<%= form_with(model: prompt, local: true) do |form| %>
+  <% if prompt.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(prompt.errors.count, "error") %> prohibited this prompt from being saved:</h2>
+
+      <ul>
+        <% prompt.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table align="center">
+  <tr>
+    <td>
+      <div class="form-group">
+        <%= form.text_field :content, class: "form-control", placeholder: "name your new prompt" %>
+      </div>
+    </td>
+    <td>
+      <div class="actions" align="left">
+        <%= form.submit "Create Prompt", class: "btn btn-primary btn-md" %>
+      </div>
+    </td>
+  </tr>
+</table>
+<% end %>

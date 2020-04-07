@@ -183,3 +183,85 @@ a.dropdown-item:visited{
 		text-align: center;
 	}
 }
+
+
+/* JOURNAL STYLES*/
+
+.journal-entry-show-prompt{
+	max-width: 60vw;
+	margin-left: 6vw;
+	text-align: center;
+}
+
+.trix-content{
+	max-width: 60vw;
+	margin-left: 6vw;
+
+	h1:first-of-type{
+		@extend .h2;
+		text-align: center;
+		margin-bottom: 1vh;
+	}
+}
+
+.right-aligned-btn{
+	padding: 1vh 0 0 0;
+	text-align: right;
+}
+
+.new-prompt-form-container{
+	width: 80vw;
+	margin: 0 15vw 0 5vw;
+	padding: 2vh 2vw;
+	table{
+		width: 100%;
+	}
+}
+
+.button-index-container{
+	border: dotted 1px black;
+	padding: 1vh 1vw 1vh 1vw;
+	text-align: center;
+	.btn{
+		margin: 2px 0px;
+	}
+}
+
+.new-entry-form-container{
+	/*width: 100%;*/
+	/*margin: 0 15vw 0 5vw;*/
+	padding: 1vh 1vw;
+	border: dotted 1px black;
+	.trix-button-row{
+		/*max-width: 60%;*/
+	}
+	#journal_entry_content{
+		min-width: 100%;
+		margin-left: 0;
+	}
+}
+
+.new-post-form-container{
+	width: 90vw;
+	/*margin: 0 37vw 0 3vw ;*/
+}
+
+.posts-feed-container{
+	width: 80vw;
+	/*margin: 0 37vw 0 3vw ;*/
+}
+
+.post-feed-container{
+	border: solid 1px #333333;
+	border-radius: 8px;
+	margin: 2vh 0 1vh 0;
+	padding: 1vh 1vw;
+}
+
+
+trix-editor {
+		/*height: 20vh;*/
+		/*max-height: 80vh;*/
+		min-height: 25vh;
+	  	overflow-y: auto;
+	}

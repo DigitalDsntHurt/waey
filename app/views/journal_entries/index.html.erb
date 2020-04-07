@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-title">Journal Entries<br>
+<%= link_to "New Entry", "/journal_entries/new", class: "btn btn-primary btn-lg" %><%= link_to "HI", "/", class: "btn btn-primary btn-lg" %>
+</h1>
+
+<div class="button-index-container">
+  <h4 align="center">Recent Prompts</h4>
+  <% @prompts.each{|prompt_id| %>
+    <% prompt = Prompt.where(id: prompt_id)[0] %>
+    <%= link_to prompt.content, prompt, class: "btn btn-success btn-md" %>
+  <% } %>
+
+  <div class="right-aligned-btn">
+    <%= link_to "new prompt", new_prompt_path, class: "btn btn-primary btn-md" %>
+  </div>
+</div>
+
+
+
+<% @journal_entries.each do |journal_entry| %>
+  <h2>
+    <%= link_to journal_entry.prompt.content, journal_entry.prompt %>
+  </h2>
+  <p style="padding-bottom: 22px; margin-bottom: 22px; border-bottom: solid 1px black;">
+    <%= journal_entry.content %>
+  </p>
+<% end %>
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<hr>
+<h1>default</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Prompt</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @journal_entries.each do |journal_entry| %>
+      <tr>
+        <td><%= link_to journal_entry.prompt.content, journal_entry.prompt %></td>
+        <td><%= journal_entry.content %></td>
+        <td><%= link_to 'Show', journal_entry %></td>
+        <td><%= link_to 'Edit', edit_journal_entry_path(journal_entry) %></td>
+        <td><%= link_to 'Destroy', journal_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Journal Entry', new_journal_entry_path %>
