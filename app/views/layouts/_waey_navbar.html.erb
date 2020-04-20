@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="/journal_entries/home">journal</a>
+  <a class="navbar-brand" href="/">waey</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -42,6 +42,24 @@
           <a class="dropdown-item" href="/dailies/alcohol_summary">Alcohol</a>
           <a class="dropdown-item" href="/dailies/alcohol_index">Alcohol</a>
         </div>
+      </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right nav-time-box">
+      <li>
+        <%= YEAR %>: 
+      </li>
+      <li>
+        It's day <%= YEAR_DAY %> of <%= DAYS_IN_THIS_YEAR %> (<%= (YEAR_DAY / DAYS_IN_THIS_YEAR.to_f * 100.0).round() %>%)
+      </li>
+      <li>
+        It's week <%= YEAR_WEEK %> of <%= WEEKS_IN_THIS_YEAR %> (<%= (YEAR_WEEK / WEEKS_IN_THIS_YEAR.to_f * 100.0).round() %>%)
+      </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <a class="navbar-brand" href="/journal_entries/home">journal</a>
       </li>
     </ul>
   </div>

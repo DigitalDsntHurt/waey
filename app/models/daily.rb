@@ -73,7 +73,7 @@ validates :habit, presence: true
     return @hsh
   end
 
-  def self.full_index_summary
+  def self.old_full_index_summary
     @payload = []
     @start_date = Date.new(2020,01,01)
     until @start_date > Date.today
@@ -89,6 +89,30 @@ validates :habit, presence: true
         no_alcohol: @today.where(habit: "no alcohol")[0].done,
         shower: @today.where(habit: "shower")[0].done, 
         pm_brush: @today.where(habit: "pm brush")[0].done 
+      }
+
+      @start_date += 1
+    end
+
+    @payload
+  end
+
+  def self.full_index_summary
+    @payload = []
+    @start_date = Date.new(2020,01,01)
+    until @start_date > Date.today
+      @today = Daily.where(date: @start_date)
+
+      @payload << { 
+        date: @start_date, 
+        am_brush: @today.where(habit: "am brush")[0],
+        stretch: @today.where(habit: "stretch")[0], 
+        journal: @today.where(habit: "journal")[0],
+        meditate: @today.where(habit: "meditate")[0],
+        visualize: @today.where(habit: "visualize success")[0],
+        no_alcohol: @today.where(habit: "no alcohol")[0],
+        shower: @today.where(habit: "shower")[0], 
+        pm_brush: @today.where(habit: "pm brush")[0] 
       }
 
       @start_date += 1
