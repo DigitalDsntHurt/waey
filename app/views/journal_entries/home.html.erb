@@ -24,7 +24,7 @@
 <div class="posts-feed-container">
   <% @journal_entries.reverse.each do |journal_entry| %>
     <div class="post-feed-container">
-    <h2 style="margin-left:20vw;"><%= link_to journal_entry.prompt.content, journal_entry.prompt %></h2>
+    <h2 style="margin-left:20vw;"><%= link_to journal_entry.prompt.content, journal_entry.prompt %> (<i><%= link_to "edit", edit_journal_entry_path(journal_entry) %></i>)</h2>
       <%= journal_entry.content %>
     </div>
   <% end %>

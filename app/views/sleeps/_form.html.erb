@@ -11,22 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.text_field :date, data: { behavior: "date-picker" } %>
-  </div>
-
-  <div class="field">
-    <%= form.label :hrs %>
-    <%= form.text_field :hrs %>
-  </div>
-
-  <div class="field">
-    <%= form.label :mins %>
-    <%= form.text_field :mins %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="table-responsive">
+  <table class="form-partial">
+    <tr>
+      <td class="text-field-width">
+          <div class="form-group">
+            <%= form.number_field :hrs, placeholder: "hours", class: "form-control" %>
+          </div>
+      </td>
+      <td class="text-field-width">
+        <div class="form-group">
+          <%= form.number_field :mins, placeholder: "minutes", class: "form-control" %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" class="button-cell">
+        <div class="actions">
+          <%= form.submit "log", class: "btn btn-info btn-md short-text-button" %>
+        </div>
+      </td>
+    </tr>
+    </tr>
+  </table>
+</div>
 <% end %>

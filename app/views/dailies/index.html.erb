@@ -9,6 +9,51 @@
     <tr>
       <th>date</th>
       <th>dow</th>
+      <th>am brush</th>
+      <th>stretch</th>
+      <th>journal</th>
+      <th>meditate</th>
+      <th>visualize</th>
+      <th>no alcohol</th>
+      <th>shower</th>
+      <th>pm brush</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @row_summary.each{|row| %>
+      <tr>
+        <% row.values.each{|value| %>
+          <% if value.class == Date %>
+            <td class="center-text"><%= value %></td>
+            <td class="center-text"><%= value.strftime("%a") %></td>
+          <% else %>
+            <% if value == true %>
+              <td class="center-text">
+                <%= fa_icon "check-square", size: '2x', style: 'color: green' %>
+              </td>
+            <% else %>
+              <td class="center-text">
+                <%= fa_icon "square", size: '2x', style: 'color: red' %>
+              </td>
+            <% end %>
+          <% end %>  
+        <% } %>  
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+
+
+<br><br><br>
+<hr>
+<br><br><br>
+
+<table class="index-table">
+  <thead>
+    <tr>
+      <th>date</th>
+      <th>dow</th>
       <th>habit</th>
       <th>done</th>
     </tr>

@@ -16,15 +16,19 @@
 
   <tbody>
     <% @exercises.each do |exercise| %>
-      <tr>
-        <td><%= exercise.date %></td>
-        <td><%= exercise.date.strftime("%A") %></td>
-        <td class="center-text"><%= exercise.total_minutes %></td>
+      <% if exercise.total_minutes >= 60 %>
+        <tr class="goal-achieved">
+      <% else %>
+        <tr class="goal-not-achieved">
+      <% end %>
+        <td><%= link_to exercise.date, edit_exercise_path(exercise) %></td>
+        <td><%= link_to exercise.date.strftime("%a"), edit_exercise_path(exercise) %></td>
+        <td class="center-text"><%= link_to exercise.total_minutes, edit_exercise_path(exercise) %></td>
         <td class="wrap-text-cell">
           <% if  exercise.description == "" %>
-            <%= link_to "--", exercise %>
+            <%= link_to "--", edit_exercise_path(exercise) %>
           <% else %>
-            <%= link_to exercise.description, exercise %>
+            <%= link_to exercise.description, edit_exercise_path(exercise) %>
           <% end %>
         </td>
       </tr>

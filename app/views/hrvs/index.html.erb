@@ -3,22 +3,24 @@
 <h1 class="page-title">HRV</h1>
 
 <% if true %>
-<%= render partial: "mini_form", locals: {hrv: Hrv.new} %>
+<%= render partial: "mini_form", locals: {hrv: @todays_hrv} %>
 <% end %>
 
 <table class="index-table">
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Hrv</th>
+      <th>date</th>
+      <th>dow</th>
+      <th>hrv</th>
     </tr>
   </thead>
 
   <tbody>
     <% @hrvs.each do |hrv| %>
       <tr>
-        <td class="center-text"><%= link_to hrv.date, hrv %></td>
-        <td class="center-text"><%= hrv.hrv %></td>
+        <td class="center-text"><%= link_to hrv.date, edit_hrv_path(hrv) %></td>
+        <td class="center-text"><%= link_to hrv.date.strftime("%a"), edit_hrv_path(hrv) %></td>
+        <td class="center-text"><%= link_to hrv.hrv, edit_hrv_path(hrv) %></td>
       </tr>
     <% end %>
   </tbody>

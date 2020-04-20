@@ -15,6 +15,11 @@ class PromptsController < ApplicationController
   # GET /prompts/1
   # GET /prompts/1.json
   def show
+    if @prompt.content.downcase.include?("nooks")
+      @nooks_age = NOOKS_AGE
+    else
+      @nooks_age = ""
+    end
   end
 
   # GET /prompts/new

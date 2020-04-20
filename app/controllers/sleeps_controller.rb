@@ -4,6 +4,7 @@ class SleepsController < ApplicationController
   # GET /sleeps
   # GET /sleeps.json
   def index
+    @todays_sleep = Sleep.where(date: Date.today)[0]
     @sleeps = Sleep.all.sort_by{|sleep| sleep.date }.reverse
   end
 
@@ -42,7 +43,7 @@ class SleepsController < ApplicationController
   def update
     respond_to do |format|
       if @sleep.update(sleep_params)
-        format.html { redirect_back fallback_location: :sleeps, notice: 'Sleep was successfully updated.' }
+        format.html { redirect_to sleeps_url, notice: 'Sleep was successfully updated.' }
         format.json { render :show, status: :ok, location: @sleep }
       else
         format.html { render :edit }

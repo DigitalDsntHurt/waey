@@ -4,6 +4,7 @@ class HrvsController < ApplicationController
   # GET /hrvs
   # GET /hrvs.json
   def index
+    @todays_hrv = Hrv.where(date: Date.today)[0]
     @hrvs = Hrv.all.sort_by{|hrv| hrv.date }.reverse
   end
 
@@ -42,7 +43,7 @@ class HrvsController < ApplicationController
   def update
     respond_to do |format|
       if @hrv.update(hrv_params)
-        format.html { redirect_back fallback_location: :hrvs, notice: 'Hrv was successfully updated.' }
+        format.html { redirect_to hrvs_path, notice: 'Hrv was successfully updated.' }
         format.json { render :show, status: :ok, location: @hrv }
       else
         format.html { render :edit }

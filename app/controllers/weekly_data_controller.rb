@@ -5,7 +5,6 @@ class WeeklyDataController < ApplicationController
   # GET /weekly_data.json
   def index
     WeeklyDatum.update_totals
-
     @weekly_data = WeeklyDatum.all.reverse
   end
 
