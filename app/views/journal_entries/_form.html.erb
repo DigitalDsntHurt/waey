@@ -2,7 +2,6 @@
   <% if journal_entry.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(journal_entry.errors.count, "error") %> prohibited this journal_entry from being saved:</h2>
-
       <ul>
         <% journal_entry.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -11,22 +10,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :prompt_id %>
-    <%= form.number_field :prompt_id %>
+  <div class="form-group">
+    <%= form.select :prompt_id, Prompt.all.collect{|prompt| [prompt.content,prompt.id]}, {}, {class: "prompt-select form-control"} %>
   </div>
 
-  <div class="field">
-    <%= form.label :prompt_id %>
-    <%= form.select :prompt_id, Prompt.all.collect{|prompt| [prompt.content,prompt.id]} %>
+  <div class="form-group">
+    <%= form.rich_text_area :content, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.rich_text_area :content %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="right-aligned-btn">
+    <%= form.submit "Create", class: "btn btn-primary btn-md" %>
   </div>
 <% end %>

@@ -6,7 +6,6 @@ class DailiesController < ApplicationController
   def index
     # create outstanding habits
     Habits.create_outstanding_habits
-    
     @dailies = Daily.all.sort_by{|daily| daily.date }.reverse
   end
 

@@ -2,27 +2,33 @@
 
 <h1 class="page-title">Sleeps</h1>
 
-<%= render partial: "mini_form", locals: {sleep: Sleep.new} %>
+<%= render partial: "mini_form", locals: {sleep: @todays_sleep} %>
 
 <table class="index-table">
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Total hrs</th>
-      <th>Total mins</th>
-      <th>Hrs</th>
-      <th>Mins</th>
+      <th>date</th>
+      <th>dow</th>
+      <th>total hrs</th>
+      <th>total mins</th>
+      <th>hrs</th>
+      <th>mins</th>
     </tr>
   </thead>
 
   <tbody>
     <% @sleeps.each do |sleep| %>
-      <tr>
-        <td class="center-text"><%= link_to sleep.date, sleep %></td>
-        <td class="center-text"><%= sleep.total_hrs %></td>
-        <td class="center-text"><%= sleep.total_mins %></td>
-        <td class="center-text"><%= sleep.hrs %></td>
-        <td class="center-text"><%= sleep.mins %></td>
+      <% if sleep.total_hrs >= 7 %>
+        <tr class="goal-achieved">
+      <% else %>
+        <tr class="goal-not-achieved">
+      <% end %>
+        <td class="center-text"><%= link_to sleep.date, edit_sleep_path(sleep) %></td>
+        <td class="center-text"><%= link_to sleep.date.strftime("%a"), edit_sleep_path(sleep) %></td>
+        <td class="center-text"><%= link_to sleep.hrs, edit_sleep_path(sleep) %></td>
+        <td class="center-text"><%= link_to sleep.mins, edit_sleep_path(sleep) %></td>
+        <td class="center-text"><%= link_to sleep.total_hrs, edit_sleep_path(sleep) %></td>
+        <td class="center-text"><%= link_to sleep.total_mins, edit_sleep_path(sleep) %></td>
       </tr>
     <% end %>
   </tbody>

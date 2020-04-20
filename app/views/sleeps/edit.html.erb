@@ -1,6 +1,12 @@
-<h1>Editing Sleep</h1>
+<h1 class="page-title">
+	Editing Sleep<br>
+	<%= @sleep.date.strftime("%A %d %B, %Y") %>
+</h1>
 
 <%= render 'form', sleep: @sleep %>
 
-<%= link_to 'Show', @sleep %> |
-<%= link_to 'Back', sleeps_path %>
+<div align="center">
+	<%= link_to 'Show', @sleep, class: "btn btn-warning btn-sm short-text-button" %>
+	<%= link_to 'Back', sleeps_path, class: "btn btn-warning btn-sm short-text-button" %>
+</div>
+

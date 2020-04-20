@@ -1,6 +1,11 @@
-<h1>Editing Exercise</h1>
+<h1 class="page-title">
+	Editing Exercise<br>
+	<%= @exercise.date %>
+</h1>
 
 <%= render 'form', exercise: @exercise %>
 
-<%= link_to 'Show', @exercise %> |
-<%= link_to 'Back', exercises_path %>
+<div align="center">
+	<%= link_to 'Show', @exercise, class: "btn btn-warning btn-sm short-text-button" %>
+	<%= link_to 'Back', exercises_path, class: "btn btn-warning btn-sm short-text-button" %>
+</div>
