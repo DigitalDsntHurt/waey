@@ -7,6 +7,7 @@ class DailiesController < ApplicationController
     # create outstanding habits
     Habits.create_outstanding_habits
     @dailies = Daily.all.sort_by{|daily| daily.date }.reverse
+    @row_summary = Daily.full_index_summary.reverse#.sort_by{|k,v|  }
   end
 
   def alcohol_index
