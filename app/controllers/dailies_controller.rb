@@ -5,9 +5,11 @@ class DailiesController < ApplicationController
   # GET /dailies.json
   def index
     # create outstanding habits
-    Habits.create_outstanding_habits
+    # Habits.create_outstanding_habits
     @dailies = Daily.all.sort_by{|daily| daily.date }.reverse
-    @row_summary = Daily.full_index_summary.reverse#.sort_by{|k,v|  }
+    @row_summary = Daily.full_index_summary.reverse
+    @old_row_summary = Daily.old_full_index_summary.reverse
+
   end
 
   def alcohol_index
