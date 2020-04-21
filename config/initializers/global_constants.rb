@@ -1,4 +1,5 @@
-
+## SITE ACCESS ##
+MOST_RECENT_DAILY_CREATE_DATE = Daily.all.pluck(:created_at).sort.last.to_date
 
 ## TIME ##
 TODAY = Date.today

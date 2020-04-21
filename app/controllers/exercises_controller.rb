@@ -4,9 +4,6 @@ class ExercisesController < ApplicationController
   # GET /exercises
   # GET /exercises.json
   def index
-    # create outstanding habits
-    Habits.create_outstanding_habits
-
     @todays_exercise = Exercise.where(date: Date.today)[0]
     @exercises = Exercise.all.sort_by{|ex| ex.date }.reverse
   end

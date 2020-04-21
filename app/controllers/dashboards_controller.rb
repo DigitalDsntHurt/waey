@@ -1,10 +1,10 @@
 class DashboardsController < ApplicationController
   def today
+    # create outstanding habits
+    helpers.create_outstanding_habits
+
     @today = Date.today
     @yesterday = @today - 1
-
-    # create outstanding habits
-    Habits.create_outstanding_habits
 
     # today's checks
     @todays_consumption = Consumption.winning_day(Date.today)

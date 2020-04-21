@@ -2,6 +2,9 @@ class JournalEntriesController < ApplicationController
   before_action :set_journal_entry, only: [:show, :edit, :update, :destroy]
 
   def home
+    # create outstanding habits
+    helpers.create_outstanding_habits
+    
     @journal_entries = JournalEntry.all
     @prompts = @journal_entries.order(:updated_at).pluck(:prompt_id).reverse.uniq
   end
