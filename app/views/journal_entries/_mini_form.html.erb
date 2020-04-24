@@ -11,7 +11,7 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.select :prompt_id, Prompt.all.collect{|prompt| [prompt.content,prompt.id]}, {}, {class: "prompt-select form-control"} %>
+    <%= form.select :prompt_id, Prompt.use_order.collect{|prompt| [prompt.content,prompt.id]}, {}, {class: "prompt-select form-control"} %>
   </div>
 
   <div class="form-group">

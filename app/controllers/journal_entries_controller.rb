@@ -5,7 +5,7 @@ class JournalEntriesController < ApplicationController
     # create outstanding habits
     helpers.create_outstanding_habits
     
-    @journal_entries = JournalEntry.all
+    @journal_entries = JournalEntry.all.order(:updated_at)
     @prompts = @journal_entries.order(:updated_at).pluck(:prompt_id).reverse.uniq
   end
   # GET /journal_entries

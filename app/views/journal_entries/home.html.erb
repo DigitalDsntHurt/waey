@@ -24,6 +24,7 @@
 <div class="posts-feed-container">
   <% @journal_entries.reverse.each do |journal_entry| %>
     <div class="post-feed-container">
+    <%= journal_entry.updated_at.strftime("%a %d %b %Y") %> @ <%= journal_entry.updated_at.strftime("%H:%M") %> (<i><%= link_to "edit", edit_journal_entry_path(journal_entry) %></i>)    
     <h2 style="margin-left:20vw;"><%= link_to journal_entry.prompt.content, journal_entry.prompt %> (<i><%= link_to "edit", edit_journal_entry_path(journal_entry) %></i>)</h2>
       <%= journal_entry.content %>
     </div>

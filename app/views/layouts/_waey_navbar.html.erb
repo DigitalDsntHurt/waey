@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="/">waey</a>
+  
+  <%= link_to "waey", root_path, data: { keybinding: 'w' }, class: "navbar-brand" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -45,21 +46,11 @@
       </li>
     </ul>
 
-    <ul class="nav navbar-nav navbar-right nav-time-box">
-      <li>
-        <%= YEAR %>: 
-      </li>
-      <li>
-        It's day <%= YEAR_DAY %> of <%= DAYS_IN_THIS_YEAR %> (<%= (YEAR_DAY / DAYS_IN_THIS_YEAR.to_f * 100.0).round() %>%)
-      </li>
-      <li>
-        It's week <%= YEAR_WEEK %> of <%= WEEKS_IN_THIS_YEAR %> (<%= (YEAR_WEEK / WEEKS_IN_THIS_YEAR.to_f * 100.0).round() %>%)
-      </li>
-    </ul>
+    <%= render "/layouts/nav_year_stats" %>
 
     <ul class="nav navbar-nav navbar-right">
       <li>
-        <a class="navbar-brand" href="/journal_entries/home">journal</a>
+        <%= link_to "journal", journal_entries_home_path, data: {keybinding: 'j'}, class: "navbar-brand" %>
       </li>
     </ul>
   </div>

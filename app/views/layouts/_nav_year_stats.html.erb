@@ -1,0 +1,28 @@
+    <ul class="nav navbar-nav navbar-right nav-time-box">
+      <li>
+        <table>
+          <tr>
+            <td align="center">
+              <%= (YEAR_DAY / DAYS_IN_THIS_YEAR.to_f * 100.0).round() %>% thru <%= DAYS_IN_THIS_YEAR %> days in <%= YEAR %>
+            </td>
+            <td align="center"><%= (YEAR_WEEK / WEEKS_IN_THIS_YEAR.to_f * 100.0).round() %>% thru <%= WEEKS_IN_THIS_YEAR %> weeks in <%= YEAR%></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="progress progress-bar-striped progress-bar-animated prog-bar-nav">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style="width: <%= (YEAR_DAY / DAYS_IN_THIS_YEAR.to_f * 100.0).round() %>%" aria-valuenow="<%= (YEAR_DAY / DAYS_IN_THIS_YEAR.to_f * 100.0).round() %>" aria-valuemin="0" aria-valuemax="100">
+                  <%= YEAR_DAY %>
+                </div>
+                <span class="gray-progress-text"><%= DAYS_IN_THIS_YEAR - YEAR_DAY %></span>
+              </div>
+            </td>            
+            <td>
+              <div class="progress progress-bar-striped progress-bar-animated prog-bar-nav">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="<%= (YEAR_WEEK / WEEKS_IN_THIS_YEAR.to_f * 100.0).round() %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= (YEAR_WEEK / WEEKS_IN_THIS_YEAR.to_f * 100.0).round() %>%"><%= YEAR_WEEK %></div>
+                <span class="gray-progress-text"><%= WEEKS_IN_THIS_YEAR - YEAR_WEEK %></span>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </li>
+    </ul>
