@@ -1,0 +1,28 @@
+<div class="form-container">
+	What happened
+	What did you think about?
+	What were you aware of?
+	What did you make? 
+	What are you grateful for?
+
+	<table class="daily-journal-table">
+		<tr>
+			<td>
+				<%= render 'daily_mini_form', journal_entry: JournalEntry.new, prompt_id: Prompt.where(content: "Journal")[0].id %>
+			</td>
+			<td>
+				<%= render 'daily_mini_form', journal_entry: JournalEntry.new, prompt_id: 5 %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<%= render 'daily_mini_form', journal_entry: JournalEntry.new, prompt_id: 5 %>
+			</td>
+			<td>
+				<%= render 'daily_mini_form', journal_entry: JournalEntry.new, prompt_id: Prompt.where(content: "Gratitudes")[0].id %>
+			</td>
+		</tr>
+	</table>
+
+	
+</div>

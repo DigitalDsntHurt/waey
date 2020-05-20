@@ -1,0 +1,32 @@
+<%= form_with(model: journal_entry, local: true) do |form| %>
+  <% if journal_entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(journal_entry.errors.count, "error") %> prohibited this journal_entry from being saved:</h2>
+      <ul>
+        <% journal_entry.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table>
+    <tr>
+      <td width="100%">
+        <div class="form-group">
+          <%= form.select :prompt_id, Prompt.where(id: prompt_id).collect{|prompt| [prompt.content,prompt.id]}, {}, {class: "prompt-select form-control"} %>
+        </div>
+      </td>
+      <td style="vertical-align: top;">
+        <%= form.submit "Create", class: "btn btn-primary btn-md" %>
+      </td>
+    </tr>
+  </table>
+  
+
+  <div class="form-group">
+    <%= form.rich_text_area :content, class: "form-control" %>
+  </div>
+
+  
+<% end %>

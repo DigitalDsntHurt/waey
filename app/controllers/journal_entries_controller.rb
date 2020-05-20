@@ -8,6 +8,11 @@ class JournalEntriesController < ApplicationController
     @journal_entries = JournalEntry.all.order(:updated_at)
     @prompts = @journal_entries.order(:updated_at).pluck(:prompt_id).reverse.uniq
   end
+
+  def daily_journal
+    
+  end
+
   # GET /journal_entries
   # GET /journal_entries.json
   def index

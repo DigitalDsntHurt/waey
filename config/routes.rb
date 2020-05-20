@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   
   get 'prompts/button_index' => 'prompts#button_index'
   resources :prompts
+  get 'journal_entries/daily_journal' => 'journal_entries#daily_journal'
   get 'journal_entries/home' => 'journal_entries#home'
   resources :journal_entries
   resources :weekly_data
